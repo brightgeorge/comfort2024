@@ -1,0 +1,1584 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>Open Bright</title>
+  <!-- loader-->
+  <link href="{% static 'admindashboard//assets/css/pace.min.css' %}" rel="stylesheet"/>
+  <script src="{% static 'admindashboard//assets/js/pace.min.js' %}"></script>
+  <!--favicon-->
+  <link rel="icon" href="../assets/images/favicon.ico' %}" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="{% static 'admindashboard//assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
+  <!-- simplebar CSS-->
+  <link href="{% static 'admindashboard//assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="{% static 'admindashboard//assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="{% static 'admindashboard//assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="{% static 'admindashboard//assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="{% static 'admindashboard//assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="{% static 'admindashboard//assets/css/app-style.css' %}" rel="stylesheet"/>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  <!-- Button trigger modal -->
+
+
+
+<script>
+function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    filename = filename?filename+'.xls':'excel_data.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+        // Setting the file name
+        downloadLink.download = filename;
+
+        //triggering the function
+        downloadLink.click();
+    }
+}</script>
+
+
+</head>
+
+<body class="bg-theme bg-theme1">
+
+<!-- start loader -->
+   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+   <!-- end loader -->
+
+<!-- Start wrapper-->
+ <div id="wrapper">
+
+  <!--Start sidebar-wrapper-->
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="index.html">
+       <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">Open Bright</h5>
+     </a>
+   </div>
+   <ul class="sidebar-menu do-nicescrol">
+      <li class="sidebar-header">MAIN NAVIGATION BR9</li>
+
+      <li>
+        <a href="{% url 'branch1_dashboard9' %}">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 9</span>
+        </a>
+      </li>
+
+
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Reports 9</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 9</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 9</span></a>
+   <a class="dropdown-item btn-warning" href="{% url 'partially_paid_guest_choose_months9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Partially Paid Guests 9</span></a>
+
+    <a class="dropdown-item btn-info" href="{% url 'detailed_report_choose_months9' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report 9</span></a>
+  </div>
+</div>
+       </li>
+
+
+      <li>
+        <a href="{% url 'choose_months9' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 9</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'choose_months_advance9' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 9</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'due_amt_mgt_choose_months9' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Account Mgt 9</span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{% url 'view_all_new_guest9' %}">
+          <i class="zmdi zmdi-face"></i> <span>Guests 9</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'detail_guest_general9' %}">
+          <i class="zmdi zmdi-brush"></i> <span>Collection Sheet 9</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'viewall_vacate_guest9' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacated Guest 9</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'view_all_room9' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms 9</span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{% url 'pg1_view_all_beds9' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 9</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room9' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 9</span>
+        </a>
+      </li>
+
+
+      <li>
+        <a href="{% url 'logout' %}">
+          <i class="zmdi zmdi-lock"></i> <span>Logout</span>
+        </a>
+      </li>
+
+    </ul>
+
+   </div>
+   <!--End sidebar-wrapper-->
+
+<!--Start topbar header-->
+<header class="topbar-nav">
+ <nav class="navbar navbar-expand fixed-top">
+  <ul class="navbar-nav mr-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link toggle-menu" href="javascript:void();">
+       <i class="icon-menu menu-icon"></i>
+     </a>
+    </li>
+    <li class="nav-item">
+      <form class="search-bar">
+        <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+      </form>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav align-items-center right-nav-link">
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-envelope-open-o"></i></a>
+    </li>
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-bell-o"></i></a>
+    </li>
+    <li class="nav-item language">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
+      <ul class="dropdown-menu dropdown-menu-right">
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
+        </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="dropdown-item user-details">
+        <a href="javaScript:void();">
+           <div class="media">
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+            <div class="media-body">
+            <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
+            <p class="user-subtitle">mccoy@example.com</p>
+            </div>
+           </div>
+          </a>
+        </li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+<!--End topbar header-->
+
+
+<div class="clearfix"></div>
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+      <div class="row mt-3">
+
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">DETAILED REPORT OF SEPT PRESTIGE</h5>
+
+
+                {% if messages %}
+                {% for message in messages %}
+        <div class="alert alert-success" style="width:95%;">
+         <a href="#" class="close" data-dismiss="alert">
+            &times;
+         </a>
+         <strong>!</strong> {{message}}
+
+      </div>
+       {% endfor %}
+            {% endif %}
+
+
+                 <tr>
+                     <th ><a href="{% url 'detailed_report_choose_months9' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Main</span> </button></a></th>
+                       <th ><a href="{% url 'sept_details_live9' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
+
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
+                 <th><button onclick="window.print()">Print</button></th>
+                 </tr>
+
+           <div class="table-responsive">
+              <table class="table table-bordered" id="tbldata" border="1">
+                <thead>
+                  <tr>
+                    <th scope="col" >Room</th>
+
+                    <th scope="col" style="width:140px">Rent Paid Date</th>
+                    <th scope="col" style="width:250px">Name</th>
+                    <th scope="col" style="width:170px">Number</th>
+                    <th scope="col" style="width:130px">Mthly Rent</th>
+                      <th scope="col" style="width:130px">Advance</th>
+                      <th scope="col" style="width:130px">Discount</th>
+                    <th scope="col" style="width:130px">Paid Amt</th>
+                      <th scope="col" style="width:130px">Due Amt</th>
+                    <th scope="col" style="width:300px;height:60px;">Remark</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{g2}}">1</th>
+                      {% for i in g2_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs101}}">101</th>
+                      {% for i in 101_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs102}}">102</th>
+                      {% for i in 102_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs103}}">103</th>
+                      {% for i in 103_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs104}}">104</th>
+                      {% for i in 104_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs105}}">105</th>
+                      {% for i in 105_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs106}}">106</th>
+                      {% for i in 106_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs107}}">107</th>
+                      {% for i in 107_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs108}}">108</th>
+                      {% for i in 108_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs109}}">109</th>
+                      {% for i in 109_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs110}}">110</th>
+                      {% for i in 110_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs111}}">111</th>
+                      {% for i in 111_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs112}}">112</th>
+                      {% for i in 112_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs201}}">201</th>
+                      {% for i in 201_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs202}}">202</th>
+                      {% for i in 202_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs203}}">203</th>
+                      {% for i in 203_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs204}}">204</th>
+                      {% for i in 204_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs205}}">205</th>
+                      {% for i in 205_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs206}}">206</th>
+                      {% for i in 206_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs207}}">207</th>
+                      {% for i in 207_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs208}}">208</th>
+                      {% for i in 208_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs209}}">209</th>
+                      {% for i in 209_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs210}}">210</th>
+                      {% for i in 210_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs211}}">211</th>
+                      {% for i in 211_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs212}}">212</th>
+                      {% for i in 212_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs301}}">301</th>
+                      {% for i in 301_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs302}}">302</th>
+                      {% for i in 302_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs303}}">303</th>
+                      {% for i in 303_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs304}}">304</th>
+                      {% for i in 304_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs305}}">305</th>
+                      {% for i in 305_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs306}}">306</th>
+                      {% for i in 306_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs307}}">307</th>
+                      {% for i in 307_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs308}}">308</th>
+                      {% for i in 308_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs309}}">309</th>
+                      {% for i in 309_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs310}}">310</th>
+                      {% for i in 310_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs311}}">311</th>
+                      {% for i in 311_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs312}}">312</th>
+                      {% for i in 312_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs401}}">401</th>
+                      {% for i in 401_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs402}}">402</th>
+                      {% for i in 402_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs403}}">403</th>
+                      {% for i in 403_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs404}}">404</th>
+                      {% for i in 404_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs405}}">405</th>
+                      {% for i in 405_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs406}}">406</th>
+                      {% for i in 406_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs407}}">407</th>
+                      {% for i in 407_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs408}}">408</th>
+                      {% for i in 408_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs409}}">409</th>
+                      {% for i in 409_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs410}}">410</th>
+                      {% for i in 410_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs411}}">411</th>
+                      {% for i in 411_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs412}}">412</th>
+                      {% for i in 412_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs501}}">501</th>
+                      {% for i in 501_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs502}}">502</th>
+                      {% for i in 502_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs503}}">503</th>
+                      {% for i in 503_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs504}}">504</th>
+                      {% for i in 504_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs505}}">505</th>
+                      {% for i in 505_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs506}}">506</th>
+                      {% for i in 506_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs507}}">507</th>
+                      {% for i in 507_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs508}}">508</th>
+                      {% for i in 508_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs509}}">509</th>
+                      {% for i in 509_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs510}}">510</th>
+                      {% for i in 510_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs511}}">511</th>
+                      {% for i in 511_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs512}}">512</th>
+                      {% for i in 512_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.sept_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.sept_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.sept_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- --------------------------------------------------------------- -->
+
+
+
+
+                </tbody>
+              </table>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div><!--End Row-->
+
+
+
+
+
+
+     <!--start overlay-->
+        <div class="overlay toggle-menu"></div>
+      <!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
+
+    </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+   <!--Start footer-->
+   <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Copyright © 2018 Dashtreme Admin
+        </div>
+      </div>
+    </footer>
+   <!--End footer-->
+
+   <!--start color switcher-->
+   <div class="right-sidebar">
+    <div class="switcher-icon">
+      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+    </div>
+    <div class="right-sidebar-content">
+
+        <p class="mb-0">Settings</p>
+      <hr>
+
+      <ul>
+
+
+
+
+          <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
+
+
+      </ul>
+
+
+      <p class="mb-0">Gaussion Texture</p>
+      <hr>
+
+      <ul class="switcher">
+        <li id="theme1"></li>
+        <li id="theme2"></li>
+        <li id="theme3"></li>
+        <li id="theme4"></li>
+        <li id="theme5"></li>
+        <li id="theme6"></li>
+      </ul>
+
+      <p class="mb-0">Gradient Background</p>
+      <hr>
+
+      <ul class="switcher">
+        <li id="theme7"></li>
+        <li id="theme8"></li>
+        <li id="theme9"></li>
+        <li id="theme10"></li>
+        <li id="theme11"></li>
+        <li id="theme12"></li>
+      <li id="theme13"></li>
+        <li id="theme14"></li>
+        <li id="theme15"></li>
+      </ul>
+
+     </div>
+   </div>
+  <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static 'admindashboard/assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'admindashboard/assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'admindashboard/assets/js/bootstrap.min.js' %}"></script>
+
+ <!-- simplebar js -->
+  <script src="{% static 'admindashboard/assets/plugins/simplebar/js/simplebar.js' %}"></script>
+  <!-- sidebar-menu js -->
+  <script src="{% static 'admindashboard/assets/js/sidebar-menu.js' %}"></script>
+
+  <!-- Custom scripts -->
+  <script src="{% static 'admindashboard/assets/js/app-script.js' %}"></script>
+
+
+</body>
+</html>
+
