@@ -100,10 +100,10 @@ WSGI_APPLICATION = 'pgproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cpg',
+        'NAME': 'comfort',
         'USER': 'root',
-        #'PASSWORD': '#123.com#',
-        'PASSWORD': '',
+        'PASSWORD': '#123.com#',
+        #'PASSWORD': '',
         'HOST': 'localhost',
 
     }
