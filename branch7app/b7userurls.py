@@ -20,6 +20,8 @@ urlpatterns = [
 
     path('branch1_room_create7/',admin_branch7.branch1_room_create7,name='branch1_room_create7'),
 
+    path('multiple_branch1_room_create_regi7/',admin_branch7.multiple_branch1_room_create_regi7,name='multiple_branch1_room_create_regi7'),
+
 #**room creation end here
 
 
@@ -33,6 +35,8 @@ urlpatterns = [
 
     path('single_pg1_bed_create_regi7/',admin_branch7.single_pg1_bed_create_regi7,name='single_pg1_bed_create_regi7'),
     path('update_bed_basic_details7/<id>',admin_branch7.update_bed_basic_details7, name='update_bed_basic_details7'),
+
+    path('multiple_single_pg1_bed_create_regi7/',admin_branch7.multiple_single_pg1_bed_create_regi7,name='multiple_single_pg1_bed_create_regi7'),
 
 #bed creation end here
 
@@ -49,6 +53,8 @@ urlpatterns = [
 
     #path('branch11_bed_create_update/<id>',branch1.branch11_bed_create_update,name='branch11_bed_create_update'),
     #path('admit_guest/',views.admit_guest,name='admit_guest'),
+
+    path('multiple_br1_admit_guest7/<id>',branch7.multiple_br1_admit_guest7,name='multiple_br1_admit_guest7'),
 
 #guest end here
 
