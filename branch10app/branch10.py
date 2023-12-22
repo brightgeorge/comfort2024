@@ -390,7 +390,7 @@ def multiple_br1_admit_guest10(request, id):
                 }
                 messages.info(request, 'BRANCH10 guest already exists')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
-                return view_all_new_guest10(request)
+                return view_all_new_guest_ob_ch(request)
             else:
 
                 lname = [
@@ -1274,7 +1274,7 @@ def multiple_br1_admit_guest10(request, id):
                 }
                 messages.info(request, 'BRANCH10 guest created sucessfully')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
-                return view_all_new_guest10(request)
+                return view_all_new_guest_ob_ch(request)
 
 
         us = request.session['username']
