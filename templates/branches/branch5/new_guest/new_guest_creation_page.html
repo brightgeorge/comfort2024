@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -250,7 +251,7 @@
 
 		   
            <hr>
-            <form action="{% url 'br1_admit_guest5' sd.id %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'multiple_br1_admit_guest5' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
 

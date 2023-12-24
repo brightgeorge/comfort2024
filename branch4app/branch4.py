@@ -371,6 +371,846 @@ def br1_admit_guest4(request, id):
     return render(request, 'index.html')
 
 
+
+
+
+
+
+
+
+
+
+
+def multiple_br1_admit_guest4(request, id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            selfmob = request.POST.get('selfmobno')
+            chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+            if chk_mob == True:
+                l = []
+                data = pg1_new_beds.objects.all()
+                for i in data:
+                    l.append(i.share_type)
+                print('l', l)
+                context = {
+                    'brname': 'BRANCH 4 Room Creation Form',
+                    'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                    'rn1': l[0]
+
+                }
+                messages.info(request, 'BRANCH4 guest already exists')
+                # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+                return view_all_new_guest4(request)
+            else:
+
+                lname = [
+
+                    'CHANDAN',
+                    'MOHAMMED SAHAD',
+                    'FARAS AHMED',
+                    'PRAGADHISH',
+                    'AMAL',
+                    'SUHAIR ABDUL REMAN P',
+                    'THIRUPATHY',
+                    'SHIVA',
+                    'AJAY KV',
+                    'MOHAMMED ASHEEQ',
+                    'MOHAMMED AJMAL',
+                    'JIJIN',
+                    'ARSHAD',
+                    'AMAL MUKUNDAN',
+                    'MOHAMMED ASHIK',
+                    'SAHAD',
+                    'LIJITH',
+                    'ADARSH T P',
+                    'BASITH',
+                    'SHIBHU',
+                    'AMEEN',
+                    'obempty',
+                    'ADITH',
+                    'ANANDU',
+                    'MADHU',
+                    'obempty',
+                    'obempty',
+                    'ARJUN DEV',
+                    'MOHAMMED ASHIQ V P',
+                    'SUHAIL',
+                    'ADARSH V',
+                    'ADITH GOPAL',
+                    'MUHAMMED NASWIH',
+                    'obempty',
+                    'AHMED IQBAL',
+                    'obempty',
+                    'G ELTON',
+                    'AADHI',
+                    'SIDDHARTH',
+                    'ASWANTH',
+                    'SAHAL',
+                    'SREYAS',
+                    'VAISHAKH',
+                    'obempty',
+                    'BIJO JOHN',
+                    'SHERVIN',
+                    'ALWIN',
+                    'VISAL',
+                    'NIBIN',
+                    'SIVARAM',
+                    'AKHIL RAJ',
+                    'SUMAISH',
+                    'AJITH',
+                    'JITHIN JAYAN',
+                    'obempty',
+                    'RIJIN MOHAN',
+                    'AHADAF',
+                    'RITHIN',
+                    'JAGADEEP',
+                    'KARTHIK',
+                    'JOSEBIN SAJI',
+                    'ATHUL SURESH',
+                    'NEERAJ',
+                    'ALBIN LALU',
+                    'JOSY ALEX',
+                    'NIKHIL',
+                    'obempty',
+                    'ALEN',
+                    'MUHAMMED MIDLAJ KV',
+                    'PV KHALEEL',
+                    'RAMAPRASAD',
+                    'MUHAMMED SUHAIB',
+                    'JOYAL K THOMAS',
+                    'ANOOP',
+                    'RINAS',
+                    'AJIN',
+                    'SHINS',
+                    'JOSHY JUSTINE',
+                    'NOUSHAD',
+                    'SHAREEF',
+                    'obempty',
+                    'SUNIL JOSEPH',
+                    'SHIBIL',
+                    'ROBIN',
+                    'ALAN',
+                    'ABHINAV',
+                    'PAVAN ELDHO',
+                    'SHREE HARI K',
+                    'RAHUL',
+                    'SREENATH',
+                    'obempty',
+                    'SHAFEEL',
+                    'ADARSH KV',
+                    'JYOTHISH',
+                    'ATHUL BABY',
+                    'SHANAVAS',
+                    'KANNAN',
+                    'obempty',
+                    'PRATHYUSH',
+                    'ANOOP KUMAR',
+                    'AUGUSTIN',
+                    'SALMAN',
+                    'obempty',
+                    'SHADIL',
+                    'SANOOP',
+                    'PRANAV',
+                    'AKHIL',
+                    'NANDU PRASAD',
+                    'NIVED A',
+                    'ADHUL DEV',
+                    'VISHNU',
+                    'ARSHIN',
+                    'VIGNESH',
+                    'THOUSEEM',
+                    'ANANTHAKRISHNAN L',
+                    'BRIGHT',
+                    'VIPIN P NAIR',
+                    'obempty',
+                    'ABY K JOHN',
+                    'SUDEESH',
+                    'SUDEESH KUMAR',
+                    'ADARSH',
+                    'SUNESH',
+                    'ABEL VISHNU',
+                    'JANBAS QAMAR',
+                    'MOHAMMED RIZWAN',
+                    'HANNIN',
+                    'MOHAMMAD RAMEES',
+                    'ADARSH',
+                    'AFSAL',
+                    'ABHISHEK PRAKASH J S',
+                    'SUHAIL',
+                    'ASHITH',
+                    'CHRISTOPHER',
+                    'UNNIKRISHNAN',
+                    'CAPTAIN',
+                    'RANJITH',
+                    'RAHIL',
+                    'obempty',
+                    'SAHAD',
+                    'MUHAMMED FAHIM',
+                    'MOHAMMAD RASHID',
+                    'JASIR',
+                    'obempty',
+                    'NITHIN',
+                    'MUHAMMAED YASIR',
+                    'MUHAMMAED RAYEES',
+                    'NIHAL',
+                    'SREENATH',
+                    'NAWAF',
+                    'AKHIL KJ',
+                    'SINAN',
+                    'FAYAS',
+                    'AMEEN',
+                    'AFWAN',
+                    'SAJAD',
+                    'ABHINAV',
+                    'MANU DAS',
+                    'AMAL',
+                    'ADITHYAN',
+                    'FAJAR MUHAMMED',
+                    'MOHAMMED SHAMVIL',
+                    'IRSHAD',
+                    'PRANAV K P',
+                    'SARFRAZ K',
+                    'MOHAMMED SANOOJ K',
+                    'RAMNAS C',
+                    'MINSHAD',
+
+                ]
+
+                phone = [
+
+                    '8700248634',
+                    '9744477643',
+                    '8136819227',
+                    '9042171522',
+                    '8137828180',
+                    '9845090410',
+                    '9944555443',
+                    '8248957813',
+                    '9744874549',
+                    '7736535699',
+                    '9061123130',
+                    '7025908986',
+                    '9539891982',
+                    '8921091330',
+                    '9562124828',
+                    '9526162521',
+                    '7012859436',
+                    '8590837773',
+                    '8943798902',
+                    '9207110123',
+                    '9544547901',
+                    '0',
+                    '6238820630',
+                    '9061942585',
+                    '8089634957',
+                    '0',
+                    '0',
+                    '9037117517',
+                    '7736140475',
+                    '6282219643',
+                    '7034175899',
+                    '8138879769',
+                    '8139008725',
+                    '0',
+                    '9946329432',
+                    '0',
+                    '9487184655',
+                    '9486734195',
+                    '6383356472',
+                    '7399141746',
+                    '6238443448',
+                    '7025025184',
+                    '9036419665',
+                    '0',
+                    '9496072436',
+                    '8147833514',
+                    '8281495096',
+                    '9747274541',
+                    '8075676695',
+                    '7094635680',
+                    '8592884982',
+                    '9384295277',
+                    '6374986483',
+                    '7025673701',
+                    '0',
+                    '9148498049',
+                    '743',
+                    '9645701284',
+                    '9074419507',
+                    '9656048242',
+                    '9074427318',
+                    '9778392342',
+                    '9747982381',
+                    '6282920195',
+                    '7012367448',
+                    '7907577087',
+                    '0',
+                    '7510270693',
+                    '8589933748',
+                    '917994222249',
+                    '8553202739',
+                    '9061924361',
+                    '7907763658',
+                    '8943821048',
+                    '9567352668',
+                    '8281165970',
+                    '9526856325',
+                    '9048945879',
+                    '8884370430',
+                    '8317467443',
+                    '0',
+                    '7022381939',
+                    '9605658088',
+                    '9496040351',
+                    '8129876690',
+                    '9061549721',
+                    '9633385167',
+                    '9048332041',
+                    '7511136366',
+                    '7736661451',
+                    '0',
+                    '6282475560',
+                    '9486962337',
+                    '6238724645',
+                    '7034107088',
+                    '9605143963',
+                    '9367292920',
+                    '0',
+                    '918556815322',
+                    '9497898755',
+                    '9113240977',
+                    '8891360016',
+                    '0',
+                    '919745128235',
+                    '9746290267',
+                    '9061290174',
+                    '9746399619',
+                    '6238675960',
+                    '8606268068',
+                    '9074104005',
+                    '98474 80957',
+                    '9961410572',
+                    '6282561789',
+                    '9526471654',
+                    '8129847601',
+                    '8086942825',
+                    '7907212108',
+                    '0',
+                    '9995391860',
+                    '9591846654',
+                    '9048098132',
+                    '7994401576',
+                    '919447100168',
+                    '9645895348',
+                    '9497388516',
+                    '9744072490',
+                    '8089372976',
+                    '9567796211',
+                    '8281730842',
+                    '96335 12992',
+                    '9526377956',
+                    '917736444834',
+                    '919526190917',
+                    '918086361619',
+                    '9895596244',
+                    '9487531097',
+                    '9037261749',
+                    '7012049798',
+                    '0',
+                    '7483995459',
+                    '8618261312',
+                    '9207670218',
+                    '7034060882',
+                    '0',
+                    '8921653417',
+                    '9496006586',
+                    '919846904100',
+                    '9567336429',
+                    '6384055101',
+                    '8921557871',
+                    '6282176095',
+                    '7012934714',
+                    '7907676425',
+                    '9746549656',
+                    '9605035891',
+                    '9544211642',
+                    '916238207270',
+                    '917558063124',
+                    '7025954707',
+                    '8157865887',
+                    '7356107439',
+                    '9895615706',
+                    '8943013363',
+                    '8139076458',
+                    '9746248937',
+                    '7902336664',
+                    '8078205560',
+                    '9446736371',
+
+                ]
+
+                amount = [
+
+                    '8500',
+                    '8500',
+                    '8500',
+                    '8500',
+                    '8500',
+                    '8500',
+                    '8500',
+                    '8500',
+                    '7000',
+                    '7000',
+                    '7000',
+                    '9000',
+                    '8500',
+                    '8500',
+                    '8500',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '14000',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '7000',
+                    '0',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '0',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '7000',
+                    '0',
+                    '7000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '8500',
+                    '8500',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '13000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '7000',
+                    '7000',
+                    '7000',
+                    '6000',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '8500',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '14000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '7000',
+                    '7000',
+                    '7000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '5000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+
+                ]
+
+                print(len(lname))
+                print(len(phone))
+                print(len(amount))
+
+                aasdf=10
+                if aasdf == 10:
+
+                    sid=0
+                    for i in range(len(lname)):
+                        sid=sid+1
+                        if lname[i] == 'obempty':
+                            ic = pg1_new_beds.objects.get(id=sid)
+                            ic.flag = 1
+                            ic.save()
+                        else:
+
+                            name = lname[i]
+                            advance = 1000
+                            monthlyrent = amount[i]
+                            selfmob = phone[i]
+                            age = 0
+                            address = 0
+                            pname = 0
+                            pmob = 0
+                            joindate = request.POST.get('jdate')
+
+                            ic = pg1_new_beds.objects.get(id=sid)
+                            ic.name = name
+                            ic.advance = advance
+                            ic.monthly_rent = monthlyrent
+                            ic.self_mob = selfmob
+                            ic.age = age
+                            ic.permanent_address = address
+                            ic.parent_name = pname
+                            ic.parent_mob = pmob
+
+                            import datetime
+                            ic.guest_join_date = joindate
+                            r = joindate
+                            l = []
+                            for i in r:
+                                l.append(i)
+
+                            ll = []
+                            for i in l:
+                                ll.append(l[5])
+                                ll.append(l[6])
+                                break
+                            s = ''.join(ll)
+
+                            ic.guest_join_month = s
+
+                            gcsaves = pg1_new_guest.objects.all()
+                            a = len(gcsaves)
+                            ic.guest_code = int(a) + 1
+
+                            ic.jan_due_amt = 0
+                            ic.feb_due_amt = 0
+                            ic.march_due_amt = 0
+                            ic.april_due_amt = 0
+                            ic.may_due_amt = 0
+                            ic.june_due_amt = 0
+                            ic.july_due_amt = 0
+                            ic.auguest_due_amt = 0
+                            ic.sept_due_amt = 0
+                            ic.october_due_amt = 0
+                            ic.nov_due_amt = 0
+                            ic.dec_due_amt = 0
+
+                            ic.flag = 2
+                            ic.save()
+                            ##################################################
+                            gd = []
+                            gud = pg1_new_beds.objects.all().filter(id=sid)
+                            for i in gud:
+                                gd.append(i.roon_no)
+                                gd.append(i.room_name)
+                                gd.append(i.bed_no)
+                                gd.append(i.bed_code)
+                                gd.append(i.share_type)
+                            print(gd)
+                            ic = pg1_new_guest()
+
+                            ic.roon_no = gd[0]
+                            ic.room_name = gd[1]
+                            ic.bed_no = gd[2]
+
+                            ic.created_by = request.session['username']
+                            ic.bed_code = gd[3]
+                            ic.share_type = gd[4]
+
+                            ic.name = name
+                            ic.advance = advance
+                            ic.monthly_rent = monthlyrent
+                            ic.self_mob = selfmob
+                            ic.age = age
+                            ic.permanent_address = address
+                            ic.parent_name = pname
+                            ic.parent_mob = pmob
+
+                            import datetime
+                            ic.guest_join_date = joindate
+
+                            gcsaves = pg1_new_guest.objects.all()
+                            a = len(gcsaves)
+                            ic.guest_code = int(a) + 1
+
+                            import datetime
+                            r = joindate
+                            l = []
+                            for i in r:
+                                l.append(i)
+
+                            ll = []
+                            for i in l:
+                                ll.append(l[5])
+                                ll.append(l[6])
+                                break
+                            s = ''.join(ll)
+
+                            ic.guest_join_month = s
+
+                            print('mystr ssss', s)
+                            ml = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+
+                            tot = 0
+                            for i in ml:
+                                tot = tot + 1
+                                if i == s:
+                                    tot = tot - 1
+                                    break
+                            print('mytit', tot)
+
+                            n = 12 - tot
+                            print(n)
+
+                            nn = []
+
+                            for i in range(n):
+                                nn.append(100)
+
+                                # nns=''
+                                # nns=''.join(nn)
+                            nns = nn
+
+                            tot = 0
+                            for i in ml:
+                                tot = tot + 1
+                                if i == s:
+                                    tot = tot - 1
+                                    ml[tot:] = nns
+
+                            print(ml)
+                            il = []
+                            for i in ml:
+                                il.append(int(i))
+                            print(il)
+
+                            ic.jan_rent = 0
+                            ic.jan_advance = 0
+                            ic.jan_due_amt = 0
+                            ic.jan_dis_amt = 0
+                            ic.jan_rent_flag = il[0]
+
+                            ic.feb_rent = 0
+                            ic.feb_advance = 0
+                            ic.feb_due_amt = 0
+                            ic.feb_dis_amt = 0
+                            ic.feb_rent_flag = il[1]
+
+                            ic.march_rent = 0
+                            ic.march_advance = 0
+                            ic.march_due_amt = 0
+                            ic.march_dis_amt = 0
+                            ic.march_rent_flag = il[2]
+
+                            ic.april_rent = 0
+                            ic.april_advance = 0
+                            ic.april_due_amt = 0
+                            ic.april_dis_amt = 0
+                            ic.april_rent_flag = il[3]
+
+                            ic.may_rent = 0
+                            ic.may_advance = 0
+                            ic.may_due_amt = 0
+                            ic.may_dis_amt = 0
+                            ic.may_rent_flag = il[4]
+
+                            ic.june_rent = 0
+                            ic.june_advance = 0
+                            ic.june_due_amt = 0
+                            ic.june_dis_amt = 0
+                            ic.june_rent_flag = il[5]
+
+                            ic.july_rent = 0
+                            ic.july_advance = 0
+                            ic.july_due_amt = 0
+                            ic.july_dis_amt = 0
+                            ic.july_rent_flag = il[6]
+
+                            ic.auguest_rent = 0
+                            ic.auguest_advance = 0
+                            ic.auguest_due_amt = 0
+                            ic.auguest_dis_amt = 0
+                            ic.auguest_rent_flag = il[7]
+
+                            ic.sept_rent = 0
+                            ic.sept_advance = 0
+                            ic.sept_due_amt = 0
+                            ic.sept_dis_amt = 0
+                            ic.sept_rent_flag = il[8]
+
+                            ic.october_rent = 0
+                            ic.october_advance = 0
+                            ic.october_due_amt = 0
+                            ic.october_dis_amt = 0
+                            ic.october_rent_flag = il[9]
+
+                            ic.nov_rent = 0
+                            ic.nov_advance = 0
+                            ic.nov_due_amt = 0
+                            ic.nov_dis_amt = 0
+                            ic.nov_rent_flag = il[10]
+
+                            ic.dec_rent = 0
+                            ic.dec_advance = 0
+                            ic.dec_due_amt = 0
+                            ic.dec_dis_amt = 0
+                            ic.dec_rent_flag = il[11]
+
+                            ic.flag = 2
+                            ic.save()
+
+                l = []
+                data = pg1_new_beds.objects.all()
+                for i in data:
+                    l.append(i.share_type)
+                print('l', l)
+                context = {
+                    'brname': 'BRANCH 4 Room Creation Form',
+                    'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                    'rn1': l[0]
+                }
+                messages.info(request, 'BRANCH4 guest created sucessfully')
+                # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+                return view_all_new_guest4(request)
+
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
+            'sd': pg1_new_beds.objects.get(id=id)
+        }
+        return render(request, 'branches/branch4/new_guest/new_guest_creation_page.html', context)
+    return render(request, 'index.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def view_all_new_guest4(request):
     if 'username' in request.session:
         l = []

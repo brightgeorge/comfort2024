@@ -193,7 +193,6 @@ def monthly_jan_make_payments_ob_ch11(request,id):
             gc = ''.join(l)
             print('lll', l)
 
-            #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch11app
             jp = branch11app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.jan_rent = amt
@@ -211,7 +210,7 @@ def monthly_jan_make_payments_ob_ch11(request,id):
                 l.append(str(i.roon_no))
                 ll.append(str(i.guest_code))
             s=''.join(l)
-            gc=''.join()
+            gc=''.join(ll)
 
             r = pg1_new_guest.objects.all().filter(id=id, flag=2)
             rl = []
@@ -251,7 +250,7 @@ def monthly_jan_make_payments_ob_ch11(request,id):
 
         import branch11app
         total_discout_amt = []
-        pg1_new_beds = branch11app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch11app.models.pg1_new_guest.objects.all().filter(flag=2,guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.jan_dis_amt))
 
@@ -277,7 +276,8 @@ def monthly_jan_make_payments_ob_ch11(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch11/payments/payment_details_of_months/jan/monthly_jan_manke_payments.html', context)
+        return render(request, 'branches/branch11/payments/payment_details_of_months/jan/monthly_jan_make_payments.html', context)
+
 
 #jan make payments start here
 
@@ -309,7 +309,6 @@ def monthly_feb_make_payments_ob_ch11(request,id):
             gc = ''.join(l)
             print('lll', l)
 
-            #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch11app
             jp = branch11app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.feb_rent = amt
@@ -367,7 +366,7 @@ def monthly_feb_make_payments_ob_ch11(request,id):
 
         import branch11app
         total_discout_amt = []
-        pg1_new_beds = branch11app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch11app.models.pg1_new_guest.objects.all().filter(flag=2,guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.feb_dis_amt))
 
@@ -393,7 +392,8 @@ def monthly_feb_make_payments_ob_ch11(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch11/payments/payment_details_of_months/feb/monthly_feb_manke_payments.html', context)
+        return render(request, 'branches/branch11/payments/payment_details_of_months/feb/monthly_feb_make_payments.html', context)
+
 
 #feb make payments start here
 
@@ -509,7 +509,7 @@ def monthly_march_make_payments_ob_ch11(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch11/payments/payment_details_of_months/march/monthly_march_manke_payments.html', context)
+        return render(request, 'branches/branch11/payments/payment_details_of_months/march/monthly_march_make_payments.html', context)
 
 #march make payments start here
 
