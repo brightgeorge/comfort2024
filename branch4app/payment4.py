@@ -158,7 +158,7 @@ def close_choose_user4(request,id):
 def monthly_jan_make_payments4(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
             date = request.POST.get('pdate')
             due_amt = request.POST.get('dueamt')
@@ -181,10 +181,9 @@ def monthly_jan_make_payments4(request,id):
             gc = ''.join(l)
             print('lll', l)
 
-            #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch4app
             jp = branch4app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.jan_rent = amt
+            jp.june_rent = amt
             jp.remark = remark
             jp.jan_due_amt = due_amt
             jp.jan_dis_amt = dis_amt
@@ -192,13 +191,13 @@ def monthly_jan_make_payments4(request,id):
             jp.jan_rent_flag = 200
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
-            ll=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            ll = []
             for i in rno:
                 l.append(str(i.roon_no))
                 ll.append(str(i.guest_code))
-            s=''.join(l)
+            s = ''.join(l)
             gc = ''.join(ll)
 
             r = pg1_new_guest.objects.all().filter(id=id, flag=2)
@@ -222,12 +221,13 @@ def monthly_jan_make_payments4(request,id):
                 'th_us': a[0],
                 'name': us,
 
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,jan_rent_flag__gt=99,guest_code=gc),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
-                'rll' : rl,
+                'rll': rl,
+
             }
-            return render(request, 'branches/branch4/payments/payment_user_details.html',context)
+            return render(request, 'branches/branch4/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -258,15 +258,15 @@ def monthly_jan_make_payments4(request,id):
             'th_us': a[0],
             'name': us,
 
-
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch4/payments/payment_details_of_months/jan/monthly_jan_manke_payments.html', context)
+        return render(request,'branches/branch4/payments/payment_details_of_months/jan/monthly_jan_make_payments.html',context)
+
 
 #jan make payments start here
 
@@ -383,7 +383,7 @@ def monthly_feb_make_payments4(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch4/payments/payment_details_of_months/feb/monthly_feb_manke_payments.html', context)
+        return render(request, 'branches/branch4/payments/payment_details_of_months/feb/monthly_feb_make_payments.html', context)
 
 #feb make payments start here
 
@@ -500,7 +500,7 @@ def monthly_march_make_payments4(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch4/payments/payment_details_of_months/march/monthly_march_manke_payments.html', context)
+        return render(request, 'branches/branch4/payments/payment_details_of_months/march/monthly_march_make_payments.html', context)
 
 #march make payments start here
 

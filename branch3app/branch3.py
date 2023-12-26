@@ -2930,7 +2930,7 @@ def paid_rent_choose_months3(request):
 def jan_paid_rent3(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.jan_rent))
             break
@@ -2952,7 +2952,7 @@ def jan_paid_rent3(request):
             'name': us,
 
 
-            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1).order_by('roon_no'),
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
@@ -2961,7 +2961,7 @@ def jan_paid_rent3(request):
 def table_jan_paid_rent3(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.jan_rent))
             break
@@ -2983,7 +2983,7 @@ def table_jan_paid_rent3(request):
             'name': us,
 
 
-            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1).order_by('roon_no'),
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
@@ -2994,7 +2994,7 @@ def table_jan_paid_rent3(request):
 def feb_paid_rent3(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.feb_rent))
             break
@@ -3016,7 +3016,7 @@ def feb_paid_rent3(request):
             'name': us,
 
 
-            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1).order_by('roon_no'),
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
@@ -3024,7 +3024,7 @@ def feb_paid_rent3(request):
 def table_feb_paid_rent3(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.feb_rent))
             break
@@ -3046,7 +3046,7 @@ def table_feb_paid_rent3(request):
             'name': us,
 
 
-            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1).order_by('roon_no'),
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
@@ -3056,7 +3056,7 @@ def table_feb_paid_rent3(request):
 def mar_paid_rent3(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.march_rent))
             break
@@ -3078,7 +3078,7 @@ def mar_paid_rent3(request):
             'name': us,
 
 
-            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1).order_by('roon_no'),
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MARCH'
@@ -3087,7 +3087,7 @@ def mar_paid_rent3(request):
 def table_mar_paid_rent3(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.march_rent))
             break
@@ -3109,7 +3109,7 @@ def table_mar_paid_rent3(request):
             'name': us,
 
 
-            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1).order_by('roon_no'),
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MARCH'
