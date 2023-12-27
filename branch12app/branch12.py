@@ -6949,7 +6949,7 @@ def viewall_vacate_guest_ob_ch12(request):
                 a= int(i.guest_vacate_month)
                 ml=[]
                 ml.append(a)
-                if _ob_ch12 <= ml[0]:
+                if 5 <= ml[0]:
                     if i.may_rent_flag == 100:
                         a = int(i.monthly_rent)
 
