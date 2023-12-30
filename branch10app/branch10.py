@@ -98,12 +98,12 @@ def br1_admit_guest_ob_ch(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch Room Creation Form',
+                    'brname': 'BRANCH 10 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
 
                 }
-                messages.info(request, 'BRANCH_ob_ch guest already exists')
+                messages.info(request, 'BRANCH 10 guest already exists')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch(request)
             else:
@@ -116,7 +116,6 @@ def br1_admit_guest_ob_ch(request, id):
                 pname = request.POST.get('pname')
                 pmob = request.POST.get('pmob')
                 joindate = request.POST.get('jdate')
-
 
                 ic = pg1_new_beds.objects.get(id=id)
                 ic.name = name
@@ -332,11 +331,11 @@ def br1_admit_guest_ob_ch(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch Room Creation Form',
+                    'brname': 'BRANCH10 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
                 }
-                messages.info(request, 'BRANCH_ob_ch guest created sucessfully')
+                messages.info(request, 'BRANCH10 guest created sucessfully')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch(request)
 
@@ -359,9 +358,6 @@ def br1_admit_guest_ob_ch(request, id):
         }
         return render(request, 'branches/branch10/new_guest/new_guest_creation_page.html', context)
     return render(request, 'index.html')
-
-
-
 
 
 

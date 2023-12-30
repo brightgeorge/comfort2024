@@ -86,6 +86,7 @@ def admit_guest_ob_ch14(request):
     return render(request, 'branches/branch14/new_guest/admit_guest.html',context)
 
 
+
 def br1_admit_guest_ob_ch14(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -98,12 +99,12 @@ def br1_admit_guest_ob_ch14(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch14 Room Creation Form',
+                    'brname': 'BRANCH 14 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
 
                 }
-                messages.info(request, 'BRANCH_ob_ch14 guest already exists')
+                messages.info(request, 'BRANCH 14 guest already exists')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch14(request)
             else:
@@ -116,7 +117,6 @@ def br1_admit_guest_ob_ch14(request, id):
                 pname = request.POST.get('pname')
                 pmob = request.POST.get('pmob')
                 joindate = request.POST.get('jdate')
-
 
                 ic = pg1_new_beds.objects.get(id=id)
                 ic.name = name
@@ -332,11 +332,11 @@ def br1_admit_guest_ob_ch14(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch14 Room Creation Form',
+                    'brname': 'BRANCH14 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
                 }
-                messages.info(request, 'BRANCH_ob_ch14 guest created sucessfully')
+                messages.info(request, 'BRANCH14 guest created sucessfully')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch14(request)
 

@@ -85,7 +85,7 @@ def br1_admit_guest9(request, id):
                     'rn1': l[0]
 
                 }
-                messages.info(request, 'BRANCH9 guest already exists')
+                messages.info(request, 'BRANCH 9 guest already exists')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest9(request)
             else:
@@ -97,6 +97,7 @@ def br1_admit_guest9(request, id):
                 address = request.POST.get('paddress')
                 pname = request.POST.get('pname')
                 pmob = request.POST.get('pmob')
+                joindate = request.POST.get('jdate')
 
                 ic = pg1_new_beds.objects.get(id=id)
                 ic.name = name
@@ -109,9 +110,20 @@ def br1_admit_guest9(request, id):
                 ic.parent_mob = pmob
 
                 import datetime
-                ic.guest_join_date = datetime.date.today()
-                d = datetime.datetime.now()
-                ic.guest_join_month = d.strftime("%m")
+                ic.guest_join_date = joindate
+                r = joindate
+                l = []
+                for i in r:
+                    l.append(i)
+
+                ll = []
+                for i in l:
+                    ll.append(l[5])
+                    ll.append(l[6])
+                    break
+                s = ''.join(ll)
+
+                ic.guest_join_month = s
 
                 gcsaves = pg1_new_guest.objects.all()
                 a = len(gcsaves)
@@ -162,38 +174,28 @@ def br1_admit_guest9(request, id):
                 ic.parent_mob = pmob
 
                 import datetime
-                ic.guest_join_date = datetime.date.today()
-                d = datetime.datetime.now()
-                ic.guest_join_month = d.strftime("%m")
+                ic.guest_join_date = joindate
 
                 gcsaves = pg1_new_guest.objects.all()
                 a = len(gcsaves)
                 ic.guest_code = int(a) + 1
 
                 import datetime
-
-                print(datetime.datetime.now())
-                x = datetime.datetime.now()
-                print(x.strftime("%x"))
-                r = x.strftime("%x")
-                # r='11/2/23'
-                print('my', r)
-                print(type(r))
+                r = joindate
                 l = []
                 for i in r:
                     l.append(i)
-                print(l)
 
                 ll = []
                 for i in l:
-                    ll.append(l[0])
-                    ll.append(l[1])
+                    ll.append(l[5])
+                    ll.append(l[6])
                     break
-                print(ll)
-
-                s = ''
                 s = ''.join(ll)
-                print('mystr', s)
+
+                ic.guest_join_month = s
+
+                print('mystr ssss', s)
                 ml = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 
                 tot = 0
@@ -311,14 +313,13 @@ def br1_admit_guest9(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH 9 Room Creation Form',
+                    'brname': 'BRANCH9 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
                 }
                 messages.info(request, 'BRANCH9 guest created sucessfully')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
-                return view_all_new_guest9(request)
-
+                return view_all_new_guest5(request)
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
@@ -335,11 +336,12 @@ def br1_admit_guest9(request, id):
             'th_us': a[0],
             'name': us,
 
-
             'sd': pg1_new_beds.objects.get(id=id)
         }
         return render(request, 'branches/branch9/new_guest/new_guest_creation_page.html', context)
     return render(request, 'index.html')
+
+
 
 
 

@@ -86,6 +86,7 @@ def admit_guest_ob_ch13(request):
     return render(request, 'branches/branch13/new_guest/admit_guest.html',context)
 
 
+
 def br1_admit_guest_ob_ch13(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -98,12 +99,12 @@ def br1_admit_guest_ob_ch13(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch13 Room Creation Form',
+                    'brname': 'BRANCH 13 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
 
                 }
-                messages.info(request, 'BRANCH_ob_ch13 guest already exists')
+                messages.info(request, 'BRANCH 13 guest already exists')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch13(request)
             else:
@@ -116,7 +117,6 @@ def br1_admit_guest_ob_ch13(request, id):
                 pname = request.POST.get('pname')
                 pmob = request.POST.get('pmob')
                 joindate = request.POST.get('jdate')
-
 
                 ic = pg1_new_beds.objects.get(id=id)
                 ic.name = name
@@ -332,11 +332,11 @@ def br1_admit_guest_ob_ch13(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch13 Room Creation Form',
+                    'brname': 'BRANCH13 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
                 }
-                messages.info(request, 'BRANCH_ob_ch13 guest created sucessfully')
+                messages.info(request, 'BRANCH13 guest created sucessfully')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch13(request)
 
@@ -359,6 +359,7 @@ def br1_admit_guest_ob_ch13(request, id):
         }
         return render(request, 'branches/branch13/new_guest/new_guest_creation_page.html', context)
     return render(request, 'index.html')
+
 
 
 
