@@ -3930,7 +3930,7 @@ def jan_make_payments_advance9(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch9/advance/details_of_months/feb/feb_make_payments_advance.html', context)
+        return render(request, 'branches/branch9/advance/details_of_months/jan/jan_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 

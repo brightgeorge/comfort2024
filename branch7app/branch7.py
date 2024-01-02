@@ -3468,6 +3468,8 @@ def jan_make_payments_advance7(request, id):
             jp.remark = remark
             jp.jan_due_amt = amt
             jp.jan_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
+
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3482,6 +3484,8 @@ def jan_make_payments_advance7(request, id):
             jp.remark = remark
             jp.jan_due_amt = amt
             jp.jan_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
+
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3505,9 +3509,10 @@ def jan_make_payments_advance7(request, id):
                 'th_us': a[0],
                 'name': us,
 
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99),
-                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99).order_by(
+                    'roon_no'),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch7/advance/details_of_months/jan/jan_advance.html', context)
         rn = request.POST.get('rno')
@@ -3527,13 +3532,13 @@ def jan_make_payments_advance7(request, id):
             'th_us': a[0],
             'name': us,
 
-            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2).order_by('roon_no'),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch7/advance/details_of_months/feb/feb_make_payments_advance.html', context)
+        return render(request, 'branches/branch7/advance/details_of_months/jan/jan_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
