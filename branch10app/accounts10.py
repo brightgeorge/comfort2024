@@ -4032,6 +4032,7 @@ def accounts_dash_board_ob_ch(request):
 
 
 
+
 #*****************************************
 #****** PROFIT SHARING STARTING HERE
 ###############################################################
@@ -4236,11 +4237,21 @@ def profit_sharing10(request,mo):
 
         sh = share_holders.objects.all().filter(flag=1)
         mon = int(mo)
-        print('my mo', mo)
-        print('float(sha[mon])', float(sha[mon]))
+        #print('my mo', mo)
+        #('float(sha[mon])', float(sha[mon]))
+        #amt=float(sha[mon]) - 500000
+        lamt=[]
         for i in sh:
-            ta = float(sha[mon]) / 100 * float(i.share_holders_percentage)
+            lamt.append(float(i.share_holders_rent))
+        samt=sum(lamt)
+        print('samt',samt)
+        amt=float(sha[mon]) - samt
+        print('amt',amt)
+        for i in sh:
+            ta = amt / 100 * float(i.share_holders_percentage)
+            print('taa',ta)
             i.share_holders_amt = ta
+            i.share_holders_amt_total =  ta + float(i.share_holders_rent)
 
         #        r_balance_9
 
@@ -4324,10 +4335,12 @@ def regi_share_holders10(request):
             if request.method == 'POST':
                 name = request.POST.get('name')
                 share = request.POST.get('share')
+                rent = request.POST.get('rent')
 
                 ic = share_holders()
                 ic.share_holders_name = name
                 ic.share_holders_percentage = share
+                ic.share_holders_rent = rent
                 ic.created_by = 'CB ' + request.session['username']
                 import datetime
                 ic.cb_date = datetime.datetime.now()
@@ -4345,10 +4358,12 @@ def update_share_holders10(request,id):
         if request.method == 'POST':
             name = request.POST.get('name')
             share = request.POST.get('share')
+            rent = request.POST.get('rent')
 
             ic = share_holders.objects.get(id=id)
             ic.share_holders_name = name
             ic.share_holders_percentage = share
+            ic.share_holders_rent = rent
             ic.updated_by = 'UB ' + request.session['username']
             import datetime
             ic.ub_date = datetime.datetime.now()
