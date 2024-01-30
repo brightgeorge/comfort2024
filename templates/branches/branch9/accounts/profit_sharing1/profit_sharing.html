@@ -1,7 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -9,45 +11,67 @@
   <meta name="author" content=""/>
   <title>Open Bright A/C S</title>
   <!-- loader-->
-  <link href="{% static 'admindashboard/assets/css/pace.min.css' %}" rel="stylesheet"/>
-  <script src="{% static 'admindashboard/assets/js/pace.min.js' %}"></script>
+  <link href="{% static 'admindashboard//assets/css/pace.min.css' %}" rel="stylesheet"/>
+  <script src="{% static 'admindashboard//assets/js/pace.min.js' %}"></script>
   <!--favicon-->
-  <link rel="icon" href="{% static 'admindashboard/assets/images/favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="../assets/images/favicon.ico' %}" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="{% static 'admindashboard//assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
   <!-- simplebar CSS-->
-  <link href="{% static 'admindashboard/assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard//assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
-  <link href="{% static 'admindashboard/assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard//assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
   <!-- animate CSS-->
-  <link href="{% static 'admindashboard/assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'admindashboard//assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
-  <link href="{% static 'admindashboard/assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'admindashboard//assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
   <!-- Sidebar CSS-->
-  <link href="{% static 'admindashboard/assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard//assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
   <!-- Custom Style-->
-  <link href="{% static 'admindashboard/assets/css/app-style.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard//assets/css/app-style.css' %}" rel="stylesheet"/>
 
-  <style>
-.mybutton {
-  border: none;
-  color: white;
-  /*padding: 16px 32px;*/
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  /*margin: 4px 2px;*/
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color:red;
-  color:white;
-  align:right;
-}
 
-</style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  <!-- Button trigger modal -->
+
+
+
+<script>
+function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    filename = filename?filename+'.xls':'excel_data.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+        // Setting the file name
+        downloadLink.download = filename;
+
+        //triggering the function
+        downloadLink.click();
+    }
+}</script>
+
 
 </head>
-
-
 
 {% if us == th_us %}
 {% for i in bg %}
@@ -58,7 +82,6 @@
 {% endif %}
 
 
-
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
    <!-- end loader -->
@@ -66,7 +89,7 @@
 <!-- Start wrapper-->
  <div id="wrapper">
 
- <!--Start sidebar-wrapper-->
+  <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="index.html">
@@ -223,7 +246,6 @@
    </div>
    <!--End sidebar-wrapper-->
 
-
 <!--Start topbar header-->
 <header class="topbar-nav">
  <nav class="navbar navbar-expand fixed-top">
@@ -289,22 +311,24 @@
 </nav>
 </header>
 <!--End topbar header-->
+
+
 <div class="clearfix"></div>
 
   <div class="content-wrapper">
     <div class="container-fluid">
 
-    <div class="row mt-3">
-      <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
-         <div class="card">
-           <div class="card-body">
-		  <a href="{% url 'view_share_holders9' %}"> <button class="mybutton button1">X Close</button></a>
-           <div class="card-title">NEW SHARE HOLDER CREATION </div>
+      <div class="row mt-3">
+
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">VIEW ALL LEDGER</h5>
 
 
-               {% if messages %}
+                {% if messages %}
                 {% for message in messages %}
-        <div class="alert alert-success" style="width:95%;">
+        <div class="alert alert-{{msg}}" style="width:95%;">
          <a href="#" class="close" data-dismiss="alert">
             &times;
          </a>
@@ -315,89 +339,121 @@
             {% endif %}
 
 
+                 <tr>
 
 
-           <hr>
-
-            <form action="{% url 'regi_share_holders9' %}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-
-
-              <div class="form-group">
-				<label for="input-1" class="col-lg-2">Share Holder Name</label>
-				<input id="minus_remark" type="text" class="form-control col-lg-5" value="0" style="display:inline;" name="name" required>
-
-                </div>
-
-                <div class="form-group">
-				<label for="input-11" class="col-lg-2">Share %</label>
-				<input id="minus_remark" type="text" class="form-control col-lg-5" value="0" style="display:inline;" name="share" required>
-
-                </div>
-
-                 <div class="form-group">
-				<label for="input-11" class="col-lg-2">Rent Amount</label>
-				<input id="minus_remark" type="text" class="form-control col-lg-5" value="0" style="display:inline;" name="rent" required>
-
-                </div>
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright A/C S - Detailed Report of JUNE')">download</button></th>
+                 <th><button onclick="window.print()">Print</button></th>
+                     <th ><a href="{% url 'create_share_holders9' %}"> <button class="mybutton button1" style="background-color:green;color:white;">ADD SHARE HOLDER </button></a></th>
 
 
 
+                 </tr>
 
-           <div class="form-group">
-            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Save</button>
+           <div class="table-responsive">
+              <table class="table table-sm" id="tbldata" border="1">
+                <thead>
+                  <tr >
+                    <th scope="col" >SL NO</th>
+                      <th scope="col" >MANAGE</th>
+                    <th scope="col" >SHARE HOLDER NAME</th>
+                    <th scope="col" >SHARE %</th>
+                      <th scope="col" >PROFIT %</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+
+{% for i in mysh %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <th scope="row">
+
+                              <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" >Manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_ledger9' id=i.id %}">Update Selected Entry</a>
+                <a class="dropdown-item" href="{% url 'delete_ledger9' id=i.id %}">Delete Selected Entry</a>
+
+               </div>
+              </div>
+
+                        </th>
+                        <th scope="row">{{i.share_holders_name}}</th>
+                         <th scope="row">{{i.share_holders_percentage}}</th>
+                        <th scope="row">{{i.share_holders_amt}}</th>
+
+
+
+{% endfor %}
+
+
+
+
+
+                <!-- --------------------------------------------------------------- -->
+
+
+
+
+                </tbody>
+              </table>
+            </div>
+            </div>
           </div>
-          </form>
-
-         </div>
-         </div>
-      </div>
-
-    </div><!--End Row-->
+        </div>
+      </div><!--End Row-->
 
 
 
 
 
-	<!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
+
+     <!--start overlay-->
+        <div class="overlay toggle-menu"></div>
+      <!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
 
-   </div><!--End content-wrapper-->
+    </div><!--End content-wrapper-->
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
 
-	<!--Start footer-->
-	<footer class="footer">
+   <!--Start footer-->
+   <footer class="footer">
       <div class="container">
         <div class="text-center">
           <a href="http://hbct.in/">Powred © HBCT.IN</a>
         </div>
       </div>
     </footer>
-	<!--End footer-->
+   <!--End footer-->
 
-	<!--start color switcher-->
+   <!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
 
-		<p class="mb-0">Settings</p>
+        <p class="mb-0">Settings</p>
       <hr>
 
       <ul>
-        <li style="background-color:red;border:1px solid white;"><a href="uom_creation.html">Create New UOM</a></li>
-        <li style="background-color:red;border:1px solid white;"><a href="create_category.html">Create New Category</a></li>
-        <li style="background-color:red;border:1px solid white;">Create New Kitchen</li>
+
+
+
+
+          <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
 
 
       </ul>
+
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
@@ -421,7 +477,7 @@
         <li id="theme10"></li>
         <li id="theme11"></li>
         <li id="theme12"></li>
-		<li id="theme13"></li>
+      <li id="theme13"></li>
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
@@ -447,6 +503,6 @@
   <script src="{% static 'admindashboard/assets/js/app-script.js' %}"></script>
 
 
-
 </body>
 </html>
+

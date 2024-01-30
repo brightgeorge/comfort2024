@@ -357,8 +357,10 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="col" >SL NO</th>
                       <th scope="col" >MANAGE</th>
                     <th scope="col" >SHARE HOLDER NAME</th>
+                      <th scope="col" >RENT AMOUNT</th>
                     <th scope="col" >SHARE %</th>
                       <th scope="col" >PROFIT %</th>
+                      <th scope="col" >GRAND TOTAL</th>
 
 
                   </tr>
@@ -375,16 +377,18 @@ function exportTableToExcel(tableID, filename = ''){
               <i class="icon-options1" >Manage</i>
              </a>
               <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="{% url 'update_ledger9' id=i.id %}">Update Selected Entry</a>
-                <a class="dropdown-item" href="{% url 'delete_ledger9' id=i.id %}">Delete Selected Entry</a>
+                  <a class="dropdown-item" href="{% url 'update_share_holders9' id=i.id %}">Update Selected Entry</a>
+                <a class="dropdown-item" href="{% url 'delete_share_holders9' id=i.id %}">Delete Selected Entry</a>
 
                </div>
               </div>
 
                         </th>
                         <th scope="row">{{i.share_holders_name}}</th>
+                        <th scope="row">{{i.share_holders_rent}}</th>
                          <th scope="row">{{i.share_holders_percentage}}</th>
                         <th scope="row">{{i.share_holders_amt}}</th>
+                        <th scope="row">{{i.share_holders_amt_total}}</th>
 
 
 

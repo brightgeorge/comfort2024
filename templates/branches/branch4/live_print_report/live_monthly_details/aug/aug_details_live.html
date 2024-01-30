@@ -83,34 +83,60 @@ th.break {
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION BR4</li>
+      <li class="sidebar-header"><h6 style="text-decoration:underline;">.........* COMFORT PG 4 *.........</h6></li>
 
-       <li>
+      <li>
         <a href="{% url 'branch1_dashboard4' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 4</span>
         </a>
       </li>
 
-      <li>
-        <a href="{% url 'unpaid_rent_choose_months4' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 4</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'paid_rent_choose_months4' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 4</span>
+                     <li>
+        <a href="{% url 'accounts_dash_board4' %}">
+          <i class="zmdi zmdi-book"></i> <span>Accounts 4</span>
         </a>
       </li>
 
-      <li>
-        <a href="{% url 'choose_months4' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 4</span>
-        </a>
-      </li>
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Reports 4</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months4' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 4</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months4' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 4</span></a>
+   <a class="dropdown-item btn-warning" href="{% url 'partially_paid_guest_choose_months4' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Partially Paid Guests 4</span></a>
+
+    <a class="dropdown-item btn-info" href="{% url 'detailed_report_choose_months4' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report 4</span></a>
+  </div>
+</div>
+       </li>
+
+
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Payments 4</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'choose_user4' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Payment 4</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'choose_months4' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Payment 4</span></a>
+
+  </div>
+</div>
+       </li>
 
         <li>
         <a href="{% url 'choose_months_advance4' %}">
           <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 4</span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{% url 'due_amt_mgt_choose_months4' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Account Mgt 4</span>
         </a>
       </li>
 
@@ -126,7 +152,7 @@ th.break {
       </li>
        <li>
         <a href="{% url 'viewall_vacate_guest4' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest 4</span>
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacated Guest 4</span>
         </a>
       </li>
 
@@ -142,15 +168,10 @@ th.break {
         </a>
       </li>
 
-        <li>
-        <a href="{% url 'may_print_live4' %}">
-          <i class="zmdi zmdi-spinner"></i> <span>Live Report 4</span>
-        </a>
-      </li>
 
         <li>
         <a href="{% url 'viewall_vaccant_room4' %}">
-          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 4</span>
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms</span>
         </a>
       </li>
 
