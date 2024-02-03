@@ -209,7 +209,7 @@
       <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="{% url 'march' %}"> <button class="mybutton button1">X Close</button></a>
+		  <a href="{% url 'march_advance' %}"> <button class="mybutton button1">X Close</button></a>
            <div class="card-title">MARCH RENT PAYING FORM </div>
 
 
@@ -227,7 +227,7 @@
 
 
            <hr>
-            <form action="{% url 'march_manke_payments' sd.id %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'march_make_payments_advance' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
 				<label for="input-11">Enter Amount</label>

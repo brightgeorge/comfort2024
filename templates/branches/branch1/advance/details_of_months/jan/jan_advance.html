@@ -233,15 +233,15 @@
         </div>
     </div>
  </div>  
-<form action="{% url 'jan' %}" method="post">
+<form action="{% url 'jan_advance' %}" method="post">
     {% csrf_token %}<br>
  <div class="form-group">
 <label for="input-4" class="col-lg-2">Choose Room No</label>
 				<select id="cars" class="col-lg-2 form-control" style="display:inline;" name="rno" required>
 					<option style="background-color:white;">Select</option>
-                    {% for i in room_name %}
+                    {% for i in room %}
 					<option value="{{i.roon_no}}" >{{i.room_name}}</option>
-                    {% endfor %}
+					{% endfor %}
 
 				</select>
 
@@ -291,12 +291,26 @@
                    <tbody>
                    {% for i in pd %}
 
+                   {% if i.jan_rent_flag == 100 %}
 				   <tr>
-                       <td><a href="{% url 'jan_manke_payments' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
+                       <td><a href="{% url 'jan_make_payments_advance' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
                     <td>{{i.name}}</td>
-                    <td>{{i.monthly_rent}}</td>
-                    <td>{{i.jan_rent}}</td>
+                    <td>{{i.advance}}</td>
+                    <td>{{i.jan_advance}}</td>
                    </tr>
+                   {% else %}
+                   <tr>
+                       <td> <button style="background-color:green;border:1px solid white;border-radius:10px;" id="hov">Already Paid</button> </a></td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.advance}}</td>
+                    <td>{{i.jan_advance}}</td>
+                   </tr>
+
+                   {% endif %}
+
+
+
+
                 {% endfor %}
 
                  </tbody></table>

@@ -233,14 +233,15 @@
         </div>
     </div>
  </div>  
-<form action="{% url 'march' %}" method="post">
+<form action="{% url 'march_advance' %}" method="post">
     {% csrf_token %}<br>
  <div class="form-group">
 <label for="input-4" class="col-lg-2">Choose Room No</label>
 				<select id="cars" class="col-lg-2 form-control" style="display:inline;" name="rno" required>
 					<option style="background-color:white;">Select</option>
-					<option value="214" >214</option>
-					<option value="215" >215</option>
+					{% for i in room %}
+					<option value="{{i.roon_no}}" >{{i.room_name}}</option>
+					{% endfor %}
 				</select>
 
 
@@ -290,17 +291,19 @@
                    {% for i in pd %}
  {% if i.march_rent_flag == 100 %}
 				   <tr>
-                       <td><a href="{% url 'march_manke_payments' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
+                       <td><a href="{% url 'march_make_payments_advance' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
                        <td>{{i.name}}</td>
-                    <td>{{i.monthly_rent}}</td>
-                    <td>{{i.march_rent}}</td>
+                    <td>{{i.advance}}</td>
+                    <td>{{i.march_advance}}</td>
+                   </tr>
                    </tr>
 {% else %}
                    <tr>
                        <td> <button style="background-color:green;border:1px solid white;border-radius:10px;" id="hov">Paid Already</button></td>
                        <td>{{i.name}}</td>
-                    <td>{{i.monthly_rent}}</td>
-                    <td>{{i.march_rent}}</td>
+                    <td>{{i.advance}}</td>
+                    <td>{{i.march_advance}}</td>
+                   </tr>
                    </tr>
 
                    {% endif %}

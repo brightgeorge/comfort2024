@@ -120,6 +120,7 @@ def br1_admit_guest(request,id):
                 address = request.POST.get('paddress')
                 pname = request.POST.get('pname')
                 pmob = request.POST.get('pmob')
+                joindate = request.POST.get('jdate')
 
                 ic = pg1_new_beds.objects.get(id=id)
                 ic.name = name
@@ -132,13 +133,24 @@ def br1_admit_guest(request,id):
                 ic.parent_mob = pmob
 
                 import datetime
-                ic.guest_join_date = datetime.date.today()
-                d = datetime.datetime.now()
-                ic.guest_join_month = d.strftime("%m")
+                ic.guest_join_date = joindate
+                r = joindate
+                l = []
+                for i in r:
+                    l.append(i)
+
+                ll = []
+                for i in l:
+                    ll.append(l[5])
+                    ll.append(l[6])
+                    break
+                s = ''.join(ll)
+
+                ic.guest_join_month = s
 
                 gcsaves = pg1_new_guest.objects.all()
                 a = len(gcsaves)
-                ic.guest_code = int(a)+1
+                ic.guest_code = int(a) + 1
 
                 ic.jan_due_amt = 0
                 ic.feb_due_amt = 0
@@ -155,9 +167,9 @@ def br1_admit_guest(request,id):
 
                 ic.flag = 2
                 ic.save()
-##################################################
-                gd=[]
-                gud=pg1_new_beds.objects.all().filter(id=id)
+                ##################################################
+                gd = []
+                gud = pg1_new_beds.objects.all().filter(id=id)
                 for i in gud:
                     gd.append(i.roon_no)
                     gd.append(i.room_name)
@@ -185,38 +197,28 @@ def br1_admit_guest(request,id):
                 ic.parent_mob = pmob
 
                 import datetime
-                ic.guest_join_date = datetime.date.today()
-                d = datetime.datetime.now()
-                ic.guest_join_month = d.strftime("%m")
+                ic.guest_join_date = joindate
 
                 gcsaves = pg1_new_guest.objects.all()
                 a = len(gcsaves)
-                ic.guest_code = int(a)+1
+                ic.guest_code = int(a) + 1
 
                 import datetime
-
-                print(datetime.datetime.now())
-                x = datetime.datetime.now()
-                print(x.strftime("%x"))
-                r = x.strftime("%x")
-                # r='11/2/23'
-                print('my', r)
-                print(type(r))
+                r = joindate
                 l = []
                 for i in r:
                     l.append(i)
-                print(l)
 
                 ll = []
                 for i in l:
-                    ll.append(l[0])
-                    ll.append(l[1])
+                    ll.append(l[5])
+                    ll.append(l[6])
                     break
-                print(ll)
-
-                s = ''
                 s = ''.join(ll)
-                print('mystr', s)
+
+                ic.guest_join_month = s
+
+                print('mystr ssss', s)
                 ml = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 
                 tot = 0
@@ -333,15 +335,6 @@ def br1_admit_guest(request,id):
                 for i in data:
                     l.append(i.share_type)
                 print('l', l)
-
-                us = request.session['username']
-                bgs = background_color.objects.all().filter(username=us)
-                bg = background_color.objects.all().filter(username=us).exists()
-                a = []
-                if bg == True:
-                    a.append(us)
-                else:
-                    a.append('f')
 
                 context = {
                     'bg': bgs,
@@ -5621,7 +5614,7 @@ def choose_months_advance(request):
         return render(request,'branches/branch1/advance/choose_months_advance.html',context)
 
 
-def jan_advane(request):
+def jan_advance(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
 
@@ -5644,6 +5637,7 @@ def jan_advane(request):
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,jan_rent_flag__gt=99),
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
+
         }
         return render(request, 'branches/branch1/advance/details_of_months/jan/jan_advance.html',context)
     return render(request,'index.html')
@@ -5734,7 +5728,7 @@ def jan_make_payments_advance(request,id):
     return render(request, 'index.html')
 
 
-def feb_advane(request):
+def feb_advance(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
 
@@ -5757,6 +5751,7 @@ def feb_advane(request):
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,feb_rent_flag__gt=99),
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
+
         }
         return render(request, 'branches/branch1/advance/details_of_months/feb/feb_advance.html',context)
     return render(request,'index.html')
@@ -5843,7 +5838,7 @@ def feb_make_payments_advance(request,id):
         return render(request, 'branches/branch1/advance/details_of_months/feb/feb_make_payments_advance.html', context)
     return render(request, 'index.html')
 
-def march_advane(request):
+def march_advance(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
 
@@ -5866,6 +5861,7 @@ def march_advane(request):
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,march_rent_flag__gt=99),
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
+
         }
         return render(request, 'branches/branch1/advance/details_of_months/march/march_advance.html',context)
     return render(request,'index.html')
