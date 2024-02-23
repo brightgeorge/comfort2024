@@ -30,6 +30,7 @@ import branch11app.b11userurls
 import branch12app.b12userurls
 import branch13app.b13userurls
 import branch14app.b14userurls
+import branch15app.b15userurls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,5 +48,6 @@ urlpatterns = [
     path('br12/', include(branch12app.b12userurls)),
     path('br13/', include(branch13app.b13userurls)),
     path('br14/', include(branch14app.b14userurls)),
+    path('br15/', include(branch15app.b15userurls)),
 
 ]
