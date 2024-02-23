@@ -11,6 +11,8 @@ from . import accounts15
 urlpatterns = [
 
     path('branch1_dashboard_ob_ch15/', branch15.branch1_dashboard_ob_ch15, name='branch1_dashboard_ob_ch15'),
+    path('branch1_dashboard15/',branch15.branch1_dashboard15,name='branch1_dashboard15'),
+
     path('background_ob_ch15',branch15.background_ob_ch15,name='background_ob_ch15'),
     path('background_regi_ob_ch15',branch15.background_regi_ob_ch15,name='background_regi_ob_ch15'),
     path('custom_background_regi_ob_ch15',branch15.custom_background_regi_ob_ch15,name='custom_background_regi_ob_ch15'),
@@ -628,6 +630,7 @@ urlpatterns = [
     path('single_monthly_daily_in_exp_items_report15/<mo>',accounts15.single_monthly_daily_in_exp_items_report15,name='single_monthly_daily_in_exp_items_report15'),
 
     path('accounts_dash_board_ob_ch15/',accounts15.accounts_dash_board_ob_ch15,name='accounts_dash_board_ob_ch15'),
+    path('accounts_dash_board15/',accounts15.accounts_dash_board15,name='accounts_dash_board15'),
 
     path('profit_sharing_choose_months15', accounts15.profit_sharing_choose_months15,name='profit_sharing_choose_months15'),
     path('profit_sharing15/<mo>', accounts15.profit_sharing15, name='profit_sharing15'),
