@@ -2779,6 +2779,8 @@ class share_holders(models.Model):
     share_holders_name = models.CharField(max_length=200)
     share_holders_percentage = models.CharField(max_length=200)
     share_holders_amt = models.CharField(max_length=200)
+    share_holders_rent = models.CharField(max_length=200)
+    share_holders_amt_total = models.CharField(max_length=200)
 
     created_by = models.CharField(max_length=200)
     cb_date = models.CharField(max_length=200)

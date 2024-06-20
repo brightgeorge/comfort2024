@@ -4244,6 +4244,9 @@ def profit_sharing14(request,mo):
 
         #        r_balance_9
 
+        mon = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+               'November', 'December']
+
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
         bg = background_color.objects.all().filter(username=us).exists()
@@ -4260,6 +4263,7 @@ def profit_sharing14(request,mo):
             'name': us,
 
             'mysh': sh,
+            'mo': mon[int(mo)],
 
         }
         return render(request,'branches/branch14/accounts/profit_sharing/profit_sharing.html',context)

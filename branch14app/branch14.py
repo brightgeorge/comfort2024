@@ -86,6 +86,7 @@ def admit_guest_ob_ch14(request):
     return render(request, 'branches/branch14/new_guest/admit_guest.html',context)
 
 
+
 def br1_admit_guest_ob_ch14(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -98,12 +99,12 @@ def br1_admit_guest_ob_ch14(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch14 Room Creation Form',
+                    'brname': 'BRANCH 14 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
 
                 }
-                messages.info(request, 'BRANCH_ob_ch14 guest already exists')
+                messages.info(request, 'BRANCH 14 guest already exists')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch14(request)
             else:
@@ -116,7 +117,6 @@ def br1_admit_guest_ob_ch14(request, id):
                 pname = request.POST.get('pname')
                 pmob = request.POST.get('pmob')
                 joindate = request.POST.get('jdate')
-
 
                 ic = pg1_new_beds.objects.get(id=id)
                 ic.name = name
@@ -332,11 +332,11 @@ def br1_admit_guest_ob_ch14(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch14 Room Creation Form',
+                    'brname': 'BRANCH14 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
                 }
-                messages.info(request, 'BRANCH_ob_ch14 guest created sucessfully')
+                messages.info(request, 'BRANCH14 guest created sucessfully')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch14(request)
 
@@ -359,6 +359,428 @@ def br1_admit_guest_ob_ch14(request, id):
         }
         return render(request, 'branches/branch14/new_guest/new_guest_creation_page.html', context)
     return render(request, 'index.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+def multiple_br1_admit_guest14(request, id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            selfmob = request.POST.get('selfmobno')
+            chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+            if chk_mob == True:
+                l = []
+                data = pg1_new_beds.objects.all()
+                for i in data:
+                    l.append(i.share_type)
+                print('l', l)
+                context = {
+                    'brname': 'BRANCH 14 Room Creation Form',
+                    'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                    'rn1': l[0]
+
+                }
+                messages.info(request, 'BRANCH14 guest already exists')
+                # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+                return view_all_new_guest_ob_ch14(request)
+            else:
+
+                lname = [
+
+                    'AZHARUDHEEN',
+                    'obempty',
+                    'AKSHAY',
+                    'NISAR',
+                    'AMEEN',
+                    'SAYOOJ',
+                    'AJO',
+                    'SREERAM',
+                    'ARJUN',
+                    'SUBRAMANIAM',
+                    'obempty',
+                    'obempty',
+                    'MUHAMMED ANSAB',
+                    'MUHAMMED RAZA',
+                    'SHAMIL',
+                    'AFLAH',
+                    'obempty',
+                    'obempty',
+                    'obempty',
+                    'obempty',
+                    'SALMAN',
+                    'obempty',
+                    'NAFIH',
+                    'NIVED',
+                    'MUHAMMED ISHAQ',
+                    'ANIRUDH',
+                    'HARIGOVIND',
+                    '9',
+                    '',
+                    'ASHISH',
+
+                ]
+
+                phone = [
+
+                    '8891008049',
+                    '0',
+                    '6238635389',
+                    '8943644381',
+                    '6282436513',
+                    '9562182987',
+                    '9566030636',
+                    '123',
+                    '7907315643',
+                    '9544044960',
+                    '0',
+                    '0',
+                    '9400960652',
+                    '6235744728',
+                    '647',
+                    '346',
+                    '0',
+                    '0',
+                    '0',
+                    '0',
+                    '9633258728',
+                    '0',
+                    '9562465619',
+                    '7510957120',
+                    '9207819031',
+                    '8156904711',
+                    '7025021453',
+                    'RIBIN',
+                    '0',
+                    '6238899483',
+
+                ]
+
+                amount = [
+
+                    '7000',
+                    '0',
+                    '5200',
+                    '5200',
+                    '5200',
+                    '5200',
+                    '6400',
+                    '7000',
+                    '7000',
+                    '6000',
+                    '0',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '0',
+                    '0',
+                    '0',
+                    '0',
+                    '6000',
+                    '0',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '7500',
+                    '7500',
+                    '1000',
+                    '0',
+                    '10000',
+
+                ]
+
+                print(len(lname))
+                print(len(phone))
+                print(len(amount))
+
+                aasdf=10
+                if aasdf == 10:
+
+                    sid=0
+                    for i in range(len(lname)):
+                        sid=sid+1
+                        if lname[i] == 'obempty':
+                            ic = pg1_new_beds.objects.get(id=sid)
+                            ic.flag = 1
+                            ic.save()
+                        else:
+
+                            name = lname[i]
+                            advance = 1000
+                            monthlyrent = amount[i]
+                            selfmob = phone[i]
+                            age = 0
+                            address = 0
+                            pname = 0
+                            pmob = 0
+                            joindate = request.POST.get('jdate')
+
+                            ic = pg1_new_beds.objects.get(id=sid)
+                            ic.name = name
+                            ic.advance = advance
+                            ic.monthly_rent = monthlyrent
+                            ic.self_mob = selfmob
+                            ic.age = age
+                            ic.permanent_address = address
+                            ic.parent_name = pname
+                            ic.parent_mob = pmob
+
+                            import datetime
+                            ic.guest_join_date = joindate
+                            r = joindate
+                            l = []
+                            for i in r:
+                                l.append(i)
+
+                            ll = []
+                            for i in l:
+                                ll.append(l[5])
+                                ll.append(l[6])
+                                break
+                            s = ''.join(ll)
+
+                            ic.guest_join_month = s
+
+                            gcsaves = pg1_new_guest.objects.all()
+                            a = len(gcsaves)
+                            ic.guest_code = int(a) + 1
+
+                            ic.jan_due_amt = 0
+                            ic.feb_due_amt = 0
+                            ic.march_due_amt = 0
+                            ic.april_due_amt = 0
+                            ic.may_due_amt = 0
+                            ic.june_due_amt = 0
+                            ic.july_due_amt = 0
+                            ic.auguest_due_amt = 0
+                            ic.sept_due_amt = 0
+                            ic.october_due_amt = 0
+                            ic.nov_due_amt = 0
+                            ic.dec_due_amt = 0
+
+                            ic.flag = 2
+                            ic.save()
+                            ##################################################
+                            gd = []
+                            gud = pg1_new_beds.objects.all().filter(id=sid)
+                            for i in gud:
+                                gd.append(i.roon_no)
+                                gd.append(i.room_name)
+                                gd.append(i.bed_no)
+                                gd.append(i.bed_code)
+                                gd.append(i.share_type)
+                            print(gd)
+                            ic = pg1_new_guest()
+
+                            ic.roon_no = gd[0]
+                            ic.room_name = gd[1]
+                            ic.bed_no = gd[2]
+
+                            ic.created_by = request.session['username']
+                            ic.bed_code = gd[3]
+                            ic.share_type = gd[4]
+
+                            ic.name = name
+                            ic.advance = advance
+                            ic.monthly_rent = monthlyrent
+                            ic.self_mob = selfmob
+                            ic.age = age
+                            ic.permanent_address = address
+                            ic.parent_name = pname
+                            ic.parent_mob = pmob
+
+                            import datetime
+                            ic.guest_join_date = joindate
+
+                            gcsaves = pg1_new_guest.objects.all()
+                            a = len(gcsaves)
+                            ic.guest_code = int(a) + 1
+
+                            import datetime
+                            r = joindate
+                            l = []
+                            for i in r:
+                                l.append(i)
+
+                            ll = []
+                            for i in l:
+                                ll.append(l[5])
+                                ll.append(l[6])
+                                break
+                            s = ''.join(ll)
+
+                            ic.guest_join_month = s
+
+                            print('mystr ssss', s)
+                            ml = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+
+                            tot = 0
+                            for i in ml:
+                                tot = tot + 1
+                                if i == s:
+                                    tot = tot - 1
+                                    break
+                            print('mytit', tot)
+
+                            n = 12 - tot
+                            print(n)
+
+                            nn = []
+
+                            for i in range(n):
+                                nn.append(100)
+
+                                # nns=''
+                                # nns=''.join(nn)
+                            nns = nn
+
+                            tot = 0
+                            for i in ml:
+                                tot = tot + 1
+                                if i == s:
+                                    tot = tot - 1
+                                    ml[tot:] = nns
+
+                            print(ml)
+                            il = []
+                            for i in ml:
+                                il.append(int(i))
+                            print(il)
+
+                            ic.jan_rent = 0
+                            ic.jan_advance = 0
+                            ic.jan_due_amt = 0
+                            ic.jan_dis_amt = 0
+                            ic.jan_rent_flag = il[0]
+
+                            ic.feb_rent = 0
+                            ic.feb_advance = 0
+                            ic.feb_due_amt = 0
+                            ic.feb_dis_amt = 0
+                            ic.feb_rent_flag = il[1]
+
+                            ic.march_rent = 0
+                            ic.march_advance = 0
+                            ic.march_due_amt = 0
+                            ic.march_dis_amt = 0
+                            ic.march_rent_flag = il[2]
+
+                            ic.april_rent = 0
+                            ic.april_advance = 0
+                            ic.april_due_amt = 0
+                            ic.april_dis_amt = 0
+                            ic.april_rent_flag = il[3]
+
+                            ic.may_rent = 0
+                            ic.may_advance = 0
+                            ic.may_due_amt = 0
+                            ic.may_dis_amt = 0
+                            ic.may_rent_flag = il[4]
+
+                            ic.june_rent = 0
+                            ic.june_advance = 0
+                            ic.june_due_amt = 0
+                            ic.june_dis_amt = 0
+                            ic.june_rent_flag = il[5]
+
+                            ic.july_rent = 0
+                            ic.july_advance = 0
+                            ic.july_due_amt = 0
+                            ic.july_dis_amt = 0
+                            ic.july_rent_flag = il[6]
+
+                            ic.auguest_rent = 0
+                            ic.auguest_advance = 0
+                            ic.auguest_due_amt = 0
+                            ic.auguest_dis_amt = 0
+                            ic.auguest_rent_flag = il[7]
+
+                            ic.sept_rent = 0
+                            ic.sept_advance = 0
+                            ic.sept_due_amt = 0
+                            ic.sept_dis_amt = 0
+                            ic.sept_rent_flag = il[8]
+
+                            ic.october_rent = 0
+                            ic.october_advance = 0
+                            ic.october_due_amt = 0
+                            ic.october_dis_amt = 0
+                            ic.october_rent_flag = il[9]
+
+                            ic.nov_rent = 0
+                            ic.nov_advance = 0
+                            ic.nov_due_amt = 0
+                            ic.nov_dis_amt = 0
+                            ic.nov_rent_flag = il[10]
+
+                            ic.dec_rent = 0
+                            ic.dec_advance = 0
+                            ic.dec_due_amt = 0
+                            ic.dec_dis_amt = 0
+                            ic.dec_rent_flag = il[11]
+
+                            ic.flag = 2
+                            ic.save()
+
+                l = []
+                data = pg1_new_beds.objects.all()
+                for i in data:
+                    l.append(i.share_type)
+                print('l', l)
+                context = {
+                    'brname': 'BRANCH 14 Room Creation Form',
+                    'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                    'rn1': l[0]
+                }
+                messages.info(request, 'BRANCH14 guest created sucessfully')
+                # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+                return view_all_new_guest_ob_ch14(request)
+
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
+            'sd': pg1_new_beds.objects.get(id=id)
+        }
+        return render(request, 'branches/branch14/new_guest/new_guest_creation_page.html', context)
+    return render(request, 'index.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def view_all_new_guest_ob_ch14(request):
@@ -1962,7 +2384,7 @@ def paid_rent_choose_months_ob_ch14(request):
 def jan_paid_rent_ob_ch14(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.jan_rent))
             break
@@ -1982,7 +2404,7 @@ def jan_paid_rent_ob_ch14(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
@@ -1991,7 +2413,7 @@ def jan_paid_rent_ob_ch14(request):
 def table_jan_paid_rent_ob_ch14(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.jan_rent))
             break
@@ -2011,7 +2433,7 @@ def table_jan_paid_rent_ob_ch14(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
@@ -2022,7 +2444,7 @@ def table_jan_paid_rent_ob_ch14(request):
 def feb_paid_rent_ob_ch14(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.feb_rent))
             break
@@ -2042,7 +2464,7 @@ def feb_paid_rent_ob_ch14(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2),
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
@@ -2050,7 +2472,7 @@ def feb_paid_rent_ob_ch14(request):
 def table_feb_paid_rent_ob_ch14(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.feb_rent))
             break
@@ -2070,7 +2492,7 @@ def table_feb_paid_rent_ob_ch14(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2),
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
@@ -2080,7 +2502,7 @@ def table_feb_paid_rent_ob_ch14(request):
 def mar_paid_rent_ob_ch14(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.march_rent))
             break
@@ -2100,7 +2522,7 @@ def mar_paid_rent_ob_ch14(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MARCH'
@@ -2109,7 +2531,7 @@ def mar_paid_rent_ob_ch14(request):
 def table_mar_paid_rent_ob_ch14(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.march_rent))
             break
@@ -2129,7 +2551,7 @@ def table_mar_paid_rent_ob_ch14(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MARCH'
@@ -4381,6 +4803,8 @@ def jan_make_payments_advance_ob_ch14(request, id):
             jp.remark = remark
             jp.jan_due_amt = amt
             jp.jan_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
+
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4395,6 +4819,8 @@ def jan_make_payments_advance_ob_ch14(request, id):
             jp.remark = remark
             jp.jan_due_amt = amt
             jp.jan_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
+
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4418,9 +4844,10 @@ def jan_make_payments_advance_ob_ch14(request, id):
                 'th_us': a[0],
                 'name': us,
 
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99),
-                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99).order_by(
+                    'roon_no'),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch14/advance/details_of_months/jan/jan_advance.html', context)
         rn = request.POST.get('rno')
@@ -4440,13 +4867,13 @@ def jan_make_payments_advance_ob_ch14(request, id):
             'th_us': a[0],
             'name': us,
 
-            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2).order_by('roon_no'),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch14/advance/details_of_months/feb/feb_make_payments_advance.html', context)
+        return render(request, 'branches/branch14/advance/details_of_months/jan/jan_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -6653,7 +7080,7 @@ def viewall_vacate_guest_ob_ch14(request):
                 a= int(i.guest_vacate_month)
                 ml=[]
                 ml.append(a)
-                if _ob_ch14 <= ml[0]:
+                if 5 <= ml[0]:
                     if i.may_rent_flag == 100:
                         a = int(i.monthly_rent)
 

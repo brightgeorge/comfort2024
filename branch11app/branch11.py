@@ -98,12 +98,12 @@ def br1_admit_guest_ob_ch11(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch11 Room Creation Form',
+                    'brname': 'BRANCH 11 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
 
                 }
-                messages.info(request, 'BRANCH_ob_ch11 guest already exists')
+                messages.info(request, 'BRANCH 11 guest already exists')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch11(request)
             else:
@@ -116,7 +116,6 @@ def br1_admit_guest_ob_ch11(request, id):
                 pname = request.POST.get('pname')
                 pmob = request.POST.get('pmob')
                 joindate = request.POST.get('jdate')
-
 
                 ic = pg1_new_beds.objects.get(id=id)
                 ic.name = name
@@ -332,11 +331,11 @@ def br1_admit_guest_ob_ch11(request, id):
                     l.append(i.share_type)
                 print('l', l)
                 context = {
-                    'brname': 'BRANCH _ob_ch11 Room Creation Form',
+                    'brname': 'BRANCH11 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
                 }
-                messages.info(request, 'BRANCH_ob_ch11 guest created sucessfully')
+                messages.info(request, 'BRANCH11 guest created sucessfully')
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest_ob_ch11(request)
 
@@ -359,6 +358,766 @@ def br1_admit_guest_ob_ch11(request, id):
         }
         return render(request, 'branches/branch11/new_guest/new_guest_creation_page.html', context)
     return render(request, 'index.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def multiple_br1_admit_guest11(request, id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            selfmob = request.POST.get('selfmobno')
+            chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+            if chk_mob == True:
+                l = []
+                data = pg1_new_beds.objects.all()
+                for i in data:
+                    l.append(i.share_type)
+                print('l', l)
+                context = {
+                    'brname': 'BRANCH 11 Room Creation Form',
+                    'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                    'rn1': l[0]
+
+                }
+                messages.info(request, 'BRANCH11 guest already exists')
+                # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+                return view_all_new_guest_ob_ch11(request)
+            else:
+
+                lname = [
+
+                    'HISHAM',
+                    'PRASHANTH',
+                    'MOBIN',
+                    'ABHIRAM',
+                    'ARJUN',
+                    'VISHNU RAVINDRAN',
+                    'ABDULLA',
+                    'BASHEER',
+                    'ARUN',
+                    'RAFI',
+                    'SALMAN FARIS P',
+                    'ARJUN',
+                    'DONASHIL',
+                    'RAHUL RADHAKRISHNAN',
+                    'VINU FRANCIS',
+                    'JOJAN',
+                    'NISHAM K ROY',
+                    'AKSHAY M',
+                    'AKARSH',
+                    'REJATH',
+                    'SACHIN',
+                    'ASWIN',
+                    'ALDRIN',
+                    'MANEESH',
+                    'obempty',
+                    'RAJESH',
+                    'PRANAV',
+                    'NITHIN',
+                    'ARUN KUMAR',
+                    'ISMAIL',
+                    'AHMED KHALEEL',
+                    'ASWIN',
+                    'AL AMEEN',
+                    'JITHIN',
+                    'OMAR SOHAG',
+                    'ARJUN AV',
+                    'ASIF',
+                    'SHANIR THAHIR',
+                    'CIRIL',
+                    'SACHIN MATHEW',
+                    'RIZWAN',
+                    'obempty',
+                    'YASHWANTH',
+                    'IMRAN',
+                    'MUHAMMED ASLAM M',
+                    'BIRAD DATTA',
+                    'DARSHAN',
+                    'ARJUN',
+                    'NIKETH',
+                    'GOKUL VS',
+                    'ASWIN',
+                    'AMAL KRISHNA T',
+                    'NITHIN',
+                    'VISHNU',
+                    'VAISHAKH',
+                    'AKSHAY',
+                    'BINU',
+                    'RAHULKISHORE NR',
+                    'VAISHAKH',
+                    'ANTONY',
+                    'AKHIL ALEX',
+                    'ADWAID',
+                    'VAISHAKH',
+                    'ARJUN DAS',
+                    'ARJUN',
+                    'VAISHAKH',
+                    'KRISHNADAS',
+                    'BAHAR S K',
+                    'LAZIM KV',
+                    'TIJIN JOSEPH',
+                    'SIVA N',
+                    'VIPUL',
+                    'SUBIN',
+                    'SIRAJ',
+                    'SANJAY',
+                    'SREEHARI',
+                    'JISHNU',
+                    'JITHIN',
+                    'AKSHAY',
+                    'ARJUN',
+                    'MUFAS',
+                    'GOKUL CS',
+                    'SHINO',
+                    'JOEL FRANCIS',
+                    'SAIFUDHEEN N',
+                    'JEGATH P',
+                    'SHUHAIR KA',
+                    'ABHIJAY KUMAR',
+                    'SREENATH MB',
+                    'SOUHAN SARBAS CH',
+                    'YAKOOB',
+                    'NUFAIJ',
+                    'RASMIL',
+                    'ANIRUDH',
+                    'REHAN RAJ',
+                    'FAZIL',
+                    'MUHAMMED FASIL',
+                    'RAFNAS',
+                    'ABID',
+                    'NAVNEETH',
+                    'SREERAM',
+                    'JUNAID',
+                    'PRABHIL RAJ',
+                    'SHAHIN SHA',
+                    'EBIN',
+                    'NABEEL NASHID',
+                    'SOORAJ',
+                    'AMAL AGUSTINE',
+                    'RAJIV',
+                    'SHAFI',
+                    'AKARSH',
+                    'AKSHAY PURUSHOTHAMAN',
+                    'MANEESH',
+                    'ASBIN G MATHEW',
+                    'RAHUL',
+                    'RAMSHAD',
+                    'HADIQ',
+                    'MANEESH',
+                    'NITHIN',
+                    'AKHILESH',
+                    'HASIF',
+                    'VAISHAKH',
+                    'MUHAMMED SAHSAD',
+                    'RAMJITH',
+                    'RIZWAN',
+                    'JEGADISH',
+                    'NAKUL',
+                    'DINESH',
+                    'NUAIM KS',
+                    'NIKHIL KRISHNA A P',
+                    'SALMAN',
+                    'AKHIL P S',
+                    'KAMIL',
+                    'ASRITH',
+                    'SREERAG',
+                    'JASIM',
+                    'SHARATH',
+                    'SHAMNAS',
+                    'SABITH',
+                    'FAYIS',
+                    'SHERIN',
+                    'ASKAR ALI',
+                    'ANTONY',
+
+                ]
+
+                phone = [
+
+                    '9562555692',
+                    '9686429354',
+                    '8848078271',
+                    '7558986207',
+                    '7306332261',
+                    '8281909177',
+                    '9656223787',
+                    '9895922959',
+                    '8075913565',
+                    '9074970720',
+                    '7090449921',
+                    '9037290733',
+                    '9539648449',
+                    '7907809707',
+                    '9886938611',
+                    '7025266966',
+                    '8078189024',
+                    '9633200643',
+                    '9567514807',
+                    '9746342585',
+                    '9746048041',
+                    '8592995820',
+                    '7356552420',
+                    '9847851780',
+                    '0',
+                    '9066676383',
+                    '8075517230',
+                    '8113069445',
+                    '8089781168',
+                    '7593922502',
+                    '9048754952',
+                    '8943735437',
+                    '9544456968',
+                    '7676423232',
+                    '9633044321',
+                    '8593974200',
+                    '8921754844',
+                    '8848262251',
+                    '6238896213',
+                    '8111801544',
+                    '9846036914',
+                    '0',
+                    '9747329364',
+                    '9633319081',
+                    '9961610563',
+                    '6009344713',
+                    '98721',
+                    '7012378988',
+                    '7560876013',
+                    '9895303683',
+                    '9633330706',
+                    '8921424747',
+                    '7890432',
+                    '08743`',
+                    '9872314',
+                    '93287',
+                    '8861217154',
+                    '9746994817',
+                    '9747041267',
+                    '76043207',
+                    '9804',
+                    '97218',
+                    '9732121',
+                    '629898',
+                    '5969',
+                    '9400763022',
+                    '7306772558',
+                    '9515820911',
+                    '9048492669',
+                    '9539710319',
+                    '7893364922',
+                    '123987',
+                    '98701',
+                    '8078159092',
+                    '9633193387',
+                    '6238494239',
+                    '9746599595',
+                    '8075730107',
+                    '556365',
+                    '89853',
+                    '87532',
+                    '9495591228',
+                    '987984',
+                    '7010303564',
+                    '7560827285',
+                    '7558854524',
+                    '9544717929',
+                    '7293252030',
+                    '8606490742',
+                    '8281450855',
+                    '9947906200',
+                    '7994103145',
+                    '9633657956',
+                    '9496636320',
+                    '949769364',
+                    '8113060362',
+                    '9895226882',
+                    '9745217396',
+                    '877363',
+                    '4687',
+                    '98',
+                    '5687',
+                    '7356066678',
+                    '9061921566',
+                    '7559043346',
+                    '7510603003',
+                    '785',
+                    '4376',
+                    '8825599898',
+                    '2313',
+                    '1235',
+                    '9778207834',
+                    '8136823774',
+                    '9207047403',
+                    '45678421',
+                    '23475',
+                    '45567',
+                    '45457687',
+                    '876',
+                    '45789',
+                    '7356239207',
+                    '8469097',
+                    '8891718022',
+                    '36545',
+                    '7682',
+                    '890879',
+                    '893090',
+                    '82910753',
+                    '7034052079',
+                    '7994190731',
+                    '8946',
+                    '9847269118',
+                    '7559820470',
+                    '432',
+                    '5432',
+                    '765',
+                    '876576',
+                    '9987',
+                    '987',
+                    '65477',
+                    '728',
+                    '755',
+                    '67454',
+
+                ]
+
+                amount = [
+
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '7500',
+                    '7500',
+                    '7500',
+                    '15000',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '7500',
+                    '7500',
+                    '7500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '9000',
+                    '9000',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '0',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '13500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '7500',
+                    '7500',
+                    '7500',
+                    '0',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '9000',
+                    '9000',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '7500',
+                    '7500',
+                    '7500',
+                    '9000',
+                    '9000',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '7500',
+                    '7500',
+                    '7500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '9000',
+                    '9000',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '9000',
+                    '9000',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '9000',
+                    '9000',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '7500',
+                    '7500',
+                    '7500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '9000',
+                    '9000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '7500',
+                    '7500',
+                    '7500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '6500',
+                    '9000',
+                    '9000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+                    '6000',
+
+                ]
+
+                print(len(lname))
+                print(len(phone))
+                print(len(amount))
+
+                aasdf=10
+                if aasdf == 10:
+
+                    sid=0
+                    for i in range(len(lname)):
+                        sid=sid+1
+                        if lname[i] == 'obempty':
+                            ic = pg1_new_beds.objects.get(id=sid)
+                            ic.flag = 1
+                            ic.save()
+                        else:
+
+                            name = lname[i]
+                            advance = 1000
+                            monthlyrent = amount[i]
+                            selfmob = phone[i]
+                            age = 0
+                            address = 0
+                            pname = 0
+                            pmob = 0
+                            joindate = request.POST.get('jdate')
+
+                            ic = pg1_new_beds.objects.get(id=sid)
+                            ic.name = name
+                            ic.advance = advance
+                            ic.monthly_rent = monthlyrent
+                            ic.self_mob = selfmob
+                            ic.age = age
+                            ic.permanent_address = address
+                            ic.parent_name = pname
+                            ic.parent_mob = pmob
+
+                            import datetime
+                            ic.guest_join_date = joindate
+                            r = joindate
+                            l = []
+                            for i in r:
+                                l.append(i)
+
+                            ll = []
+                            for i in l:
+                                ll.append(l[5])
+                                ll.append(l[6])
+                                break
+                            s = ''.join(ll)
+
+                            ic.guest_join_month = s
+
+                            gcsaves = pg1_new_guest.objects.all()
+                            a = len(gcsaves)
+                            ic.guest_code = int(a) + 1
+
+                            ic.jan_due_amt = 0
+                            ic.feb_due_amt = 0
+                            ic.march_due_amt = 0
+                            ic.april_due_amt = 0
+                            ic.may_due_amt = 0
+                            ic.june_due_amt = 0
+                            ic.july_due_amt = 0
+                            ic.auguest_due_amt = 0
+                            ic.sept_due_amt = 0
+                            ic.october_due_amt = 0
+                            ic.nov_due_amt = 0
+                            ic.dec_due_amt = 0
+
+                            ic.flag = 2
+                            ic.save()
+                            ##################################################
+                            gd = []
+                            gud = pg1_new_beds.objects.all().filter(id=sid)
+                            for i in gud:
+                                gd.append(i.roon_no)
+                                gd.append(i.room_name)
+                                gd.append(i.bed_no)
+                                gd.append(i.bed_code)
+                                gd.append(i.share_type)
+                            print(gd)
+                            ic = pg1_new_guest()
+
+                            ic.roon_no = gd[0]
+                            ic.room_name = gd[1]
+                            ic.bed_no = gd[2]
+
+                            ic.created_by = request.session['username']
+                            ic.bed_code = gd[3]
+                            ic.share_type = gd[4]
+
+                            ic.name = name
+                            ic.advance = advance
+                            ic.monthly_rent = monthlyrent
+                            ic.self_mob = selfmob
+                            ic.age = age
+                            ic.permanent_address = address
+                            ic.parent_name = pname
+                            ic.parent_mob = pmob
+
+                            import datetime
+                            ic.guest_join_date = joindate
+
+                            gcsaves = pg1_new_guest.objects.all()
+                            a = len(gcsaves)
+                            ic.guest_code = int(a) + 1
+
+                            import datetime
+                            r = joindate
+                            l = []
+                            for i in r:
+                                l.append(i)
+
+                            ll = []
+                            for i in l:
+                                ll.append(l[5])
+                                ll.append(l[6])
+                                break
+                            s = ''.join(ll)
+
+                            ic.guest_join_month = s
+
+                            print('mystr ssss', s)
+                            ml = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+
+                            tot = 0
+                            for i in ml:
+                                tot = tot + 1
+                                if i == s:
+                                    tot = tot - 1
+                                    break
+                            print('mytit', tot)
+
+                            n = 12 - tot
+                            print(n)
+
+                            nn = []
+
+                            for i in range(n):
+                                nn.append(100)
+
+                                # nns=''
+                                # nns=''.join(nn)
+                            nns = nn
+
+                            tot = 0
+                            for i in ml:
+                                tot = tot + 1
+                                if i == s:
+                                    tot = tot - 1
+                                    ml[tot:] = nns
+
+                            print(ml)
+                            il = []
+                            for i in ml:
+                                il.append(int(i))
+                            print(il)
+
+                            ic.jan_rent = 0
+                            ic.jan_advance = 0
+                            ic.jan_due_amt = 0
+                            ic.jan_dis_amt = 0
+                            ic.jan_rent_flag = il[0]
+
+                            ic.feb_rent = 0
+                            ic.feb_advance = 0
+                            ic.feb_due_amt = 0
+                            ic.feb_dis_amt = 0
+                            ic.feb_rent_flag = il[1]
+
+                            ic.march_rent = 0
+                            ic.march_advance = 0
+                            ic.march_due_amt = 0
+                            ic.march_dis_amt = 0
+                            ic.march_rent_flag = il[2]
+
+                            ic.april_rent = 0
+                            ic.april_advance = 0
+                            ic.april_due_amt = 0
+                            ic.april_dis_amt = 0
+                            ic.april_rent_flag = il[3]
+
+                            ic.may_rent = 0
+                            ic.may_advance = 0
+                            ic.may_due_amt = 0
+                            ic.may_dis_amt = 0
+                            ic.may_rent_flag = il[4]
+
+                            ic.june_rent = 0
+                            ic.june_advance = 0
+                            ic.june_due_amt = 0
+                            ic.june_dis_amt = 0
+                            ic.june_rent_flag = il[5]
+
+                            ic.july_rent = 0
+                            ic.july_advance = 0
+                            ic.july_due_amt = 0
+                            ic.july_dis_amt = 0
+                            ic.july_rent_flag = il[6]
+
+                            ic.auguest_rent = 0
+                            ic.auguest_advance = 0
+                            ic.auguest_due_amt = 0
+                            ic.auguest_dis_amt = 0
+                            ic.auguest_rent_flag = il[7]
+
+                            ic.sept_rent = 0
+                            ic.sept_advance = 0
+                            ic.sept_due_amt = 0
+                            ic.sept_dis_amt = 0
+                            ic.sept_rent_flag = il[8]
+
+                            ic.october_rent = 0
+                            ic.october_advance = 0
+                            ic.october_due_amt = 0
+                            ic.october_dis_amt = 0
+                            ic.october_rent_flag = il[9]
+
+                            ic.nov_rent = 0
+                            ic.nov_advance = 0
+                            ic.nov_due_amt = 0
+                            ic.nov_dis_amt = 0
+                            ic.nov_rent_flag = il[10]
+
+                            ic.dec_rent = 0
+                            ic.dec_advance = 0
+                            ic.dec_due_amt = 0
+                            ic.dec_dis_amt = 0
+                            ic.dec_rent_flag = il[11]
+
+                            ic.flag = 2
+                            ic.save()
+
+                l = []
+                data = pg1_new_beds.objects.all()
+                for i in data:
+                    l.append(i.share_type)
+                print('l', l)
+                context = {
+                    'brname': 'BRANCH 11 Room Creation Form',
+                    'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                    'rn1': l[0]
+                }
+                messages.info(request, 'BRANCH11 guest created sucessfully')
+                # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+                return view_all_new_guest_ob_ch11(request)
+
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
+            'sd': pg1_new_beds.objects.get(id=id)
+        }
+        return render(request, 'branches/branch11/new_guest/new_guest_creation_page.html', context)
+    return render(request, 'index.html')
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def view_all_new_guest_ob_ch11(request):
@@ -1881,7 +2640,7 @@ def paid_rent_choose_months_ob_ch11(request):
 def jan_paid_rent_ob_ch11(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.jan_rent))
             break
@@ -1901,7 +2660,7 @@ def jan_paid_rent_ob_ch11(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
@@ -1910,7 +2669,7 @@ def jan_paid_rent_ob_ch11(request):
 def table_jan_paid_rent_ob_ch11(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.jan_rent))
             break
@@ -1930,7 +2689,7 @@ def table_jan_paid_rent_ob_ch11(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
@@ -1941,7 +2700,7 @@ def table_jan_paid_rent_ob_ch11(request):
 def feb_paid_rent_ob_ch11(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.feb_rent))
             break
@@ -1961,7 +2720,7 @@ def feb_paid_rent_ob_ch11(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2),
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
@@ -1969,7 +2728,7 @@ def feb_paid_rent_ob_ch11(request):
 def table_feb_paid_rent_ob_ch11(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.feb_rent))
             break
@@ -1989,7 +2748,7 @@ def table_feb_paid_rent_ob_ch11(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=2),
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
@@ -1999,7 +2758,7 @@ def table_feb_paid_rent_ob_ch11(request):
 def mar_paid_rent_ob_ch11(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.march_rent))
             break
@@ -2019,7 +2778,7 @@ def mar_paid_rent_ob_ch11(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MARCH'
@@ -2028,7 +2787,7 @@ def mar_paid_rent_ob_ch11(request):
 def table_mar_paid_rent_ob_ch11(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.march_rent))
             break
@@ -2048,7 +2807,7 @@ def table_mar_paid_rent_ob_ch11(request):
             'th_us': a[0],
             'name': us,
 
-            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MARCH'
@@ -4300,6 +5059,8 @@ def jan_make_payments_advance_ob_ch11(request, id):
             jp.remark = remark
             jp.jan_due_amt = amt
             jp.jan_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
+
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4314,6 +5075,8 @@ def jan_make_payments_advance_ob_ch11(request, id):
             jp.remark = remark
             jp.jan_due_amt = amt
             jp.jan_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
+
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4337,9 +5100,10 @@ def jan_make_payments_advance_ob_ch11(request, id):
                 'th_us': a[0],
                 'name': us,
 
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99),
-                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99).order_by(
+                    'roon_no'),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch11/advance/details_of_months/jan/jan_advance.html', context)
         rn = request.POST.get('rno')
@@ -4359,13 +5123,13 @@ def jan_make_payments_advance_ob_ch11(request, id):
             'th_us': a[0],
             'name': us,
 
-            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2).order_by('roon_no'),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch11/advance/details_of_months/feb/feb_make_payments_advance.html', context)
+        return render(request, 'branches/branch11/advance/details_of_months/jan/jan_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -6572,7 +7336,7 @@ def viewall_vacate_guest_ob_ch11(request):
                 a= int(i.guest_vacate_month)
                 ml=[]
                 ml.append(a)
-                if _ob_ch11 <= ml[0]:
+                if 5 <= ml[0]:
                     if i.may_rent_flag == 100:
                         a = int(i.monthly_rent)
 

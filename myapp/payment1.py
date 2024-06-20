@@ -182,7 +182,6 @@ def monthly_jan_make_payments(request,id):
             gc = ''.join(l)
             print('lll', l)
 
-            #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import myapp
             jp = myapp.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.jan_rent = amt
@@ -200,7 +199,7 @@ def monthly_jan_make_payments(request,id):
                 l.append(str(i.roon_no))
                 ll.append(str(i.guest_code))
             s=''.join(l)
-            gc=''.join()
+            gc=''.join(ll)
 
             r = pg1_new_guest.objects.all().filter(id=id, flag=2)
             rl = []
@@ -240,9 +239,9 @@ def monthly_jan_make_payments(request,id):
 
         import myapp
         total_discout_amt = []
-        pg1_new_beds = myapp.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = myapp.models.pg1_new_guest.objects.all().filter(flag=2,guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.jan_dis_amt))
+            total_discout_amt.append(int(i.june_dis_amt))
 
 
         us = request.session['username']
@@ -268,7 +267,8 @@ def monthly_jan_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch1/payments/payment_details_of_months/jan/monthly_jan_manke_payments.html', context)
+        return render(request, 'branches/branch1/payments/payment_details_of_months/jan/monthly_jan_make_payments.html', context)
+
 
 #jan make payments start here
 
@@ -386,7 +386,7 @@ def monthly_feb_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch1/payments/payment_details_of_months/feb/monthly_feb_manke_payments.html', context)
+        return render(request, 'branches/branch1/payments/payment_details_of_months/feb/monthly_feb_make_payments.html', context)
 
 #feb make payments start here
 
@@ -504,7 +504,7 @@ def monthly_march_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch1/payments/payment_details_of_months/march/monthly_march_manke_payments.html', context)
+        return render(request, 'branches/branch1/payments/payment_details_of_months/march/monthly_march_make_payments.html', context)
 
 #march make payments start here
 

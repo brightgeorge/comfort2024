@@ -323,7 +323,7 @@ function exportTableToExcel(tableID, filename = ''){
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">VIEW ALL LEDGER</h5>
+              <h5 class="card-title">VIEW ALL SHARE HOLDERS</h5>
 
 
                 {% if messages %}
@@ -360,6 +360,7 @@ function exportTableToExcel(tableID, filename = ''){
                       <th scope="col" >MANAGE</th>
                     <th scope="col" >SHARE HOLDER NAME</th>
                     <th scope="col" >SHARE %</th>
+                      <th scope="col" >RENT AMOUNT</th>
 
 
                   </tr>
@@ -385,6 +386,7 @@ function exportTableToExcel(tableID, filename = ''){
                         </th>
                         <th scope="row">{{i.share_holders_name}}</th>
                          <th scope="row">{{i.share_holders_percentage}}</th>
+                        <th scope="row">{{i.share_holders_rent}}</th>
 
 
                         <th scope="row">

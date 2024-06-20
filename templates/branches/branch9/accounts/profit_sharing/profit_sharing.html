@@ -323,7 +323,7 @@ function exportTableToExcel(tableID, filename = ''){
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">VIEW ALL LEDGER</h5>
+              <h5 class="card-title">PROFIT SHARING</h5>
 
 
                 {% if messages %}
@@ -342,7 +342,7 @@ function exportTableToExcel(tableID, filename = ''){
                  <tr>
 
 
-                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright A/C S - Detailed Report of JUNE')">download</button></th>
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright A/C S - PROFIT SHARING PRRESTIGE 1 - {{mo}} ')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
                      <th ><a href="{% url 'create_share_holders9' %}"> <button class="mybutton button1" style="background-color:green;color:white;">ADD SHARE HOLDER </button></a></th>
 
@@ -353,12 +353,20 @@ function exportTableToExcel(tableID, filename = ''){
            <div class="table-responsive">
               <table class="table table-sm" id="tbldata" border="1">
                 <thead>
+
+                <tr>
+                    <th scope="col" colspan="7" style="text-align:center;background-color:violet;">
+                        PROFIT SHARING PRRESTIGE 1 - {{mo}} </th>
+                </tr>
+
                   <tr >
                     <th scope="col" >SL NO</th>
                       <th scope="col" >MANAGE</th>
                     <th scope="col" >SHARE HOLDER NAME</th>
+                      <th scope="col" >RENT AMOUNT</th>
                     <th scope="col" >SHARE %</th>
                       <th scope="col" >PROFIT %</th>
+                      <th scope="col" >GRAND TOTAL</th>
 
 
                   </tr>
@@ -375,16 +383,18 @@ function exportTableToExcel(tableID, filename = ''){
               <i class="icon-options1" >Manage</i>
              </a>
               <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="{% url 'update_ledger9' id=i.id %}">Update Selected Entry</a>
-                <a class="dropdown-item" href="{% url 'delete_ledger9' id=i.id %}">Delete Selected Entry</a>
+                  <a class="dropdown-item" href="{% url 'update_share_holders9' id=i.id %}">Update Selected Entry</a>
+                <a class="dropdown-item" href="{% url 'delete_share_holders9' id=i.id %}">Delete Selected Entry</a>
 
                </div>
               </div>
 
                         </th>
                         <th scope="row">{{i.share_holders_name}}</th>
+                        <th scope="row">{{i.share_holders_rent}}</th>
                          <th scope="row">{{i.share_holders_percentage}}</th>
                         <th scope="row">{{i.share_holders_amt}}</th>
+                        <th scope="row">{{i.share_holders_amt_total}}</th>
 
 
 

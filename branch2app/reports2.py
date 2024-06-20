@@ -232,6 +232,9 @@ def jan_print_live2(request):
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
 
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
+
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/jan/jan_print_live.html', context)
     return render(request, 'index.html')
@@ -431,6 +434,9 @@ def feb_print_live2(request):
             # 'g1_data':g1_data,
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
+
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
 
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/feb/feb_print_live.html', context)
@@ -633,6 +639,9 @@ def march_print_live2(request):
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
 
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
+
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/march/march_print_live.html', context)
     return render(request, 'index.html')
@@ -834,6 +843,9 @@ def april_print_live2(request):
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
 
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
+
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/april/april_print_live.html', context)
     return render(request, 'index.html')
@@ -1034,6 +1046,9 @@ def may_print_live2(request):
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
 
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
+
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/may/may_print_live.html', context)
     return render(request, 'index.html')
@@ -1233,6 +1248,9 @@ def june_print_live2(request):
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
 
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
+
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/june/june_print_live.html', context)
     return render(request, 'index.html')
@@ -1431,6 +1449,9 @@ def july_print_live2(request):
             # 'g1_data':g1_data,
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
+
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
 
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/july/july_print_live.html', context)
@@ -1632,6 +1653,9 @@ def auguest_print_live2(request):
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
 
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
+
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/aug/aug_print_live.html', context)
     return render(request, 'index.html')
@@ -1831,6 +1855,9 @@ def sept_print_live2(request):
             # 'g1_data':g1_data,
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
+
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
 
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/sept/sept_print_live.html', context)
@@ -2032,6 +2059,9 @@ def october_print_live2(request):
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
 
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
+
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/oct/oct_print_live.html', context)
     return render(request, 'index.html')
@@ -2232,6 +2262,9 @@ def nov_print_live2(request):
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
 
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
+
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/nov/nov_print_live.html', context)
     return render(request, 'index.html')
@@ -2430,6 +2463,9 @@ def dec_print_live2(request):
             # 'g1_data':g1_data,
             'rs415': ll[52],
             '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
+
+            'rs501': ll[53],
+            '501_data': pg1_new_beds.objects.all().filter(roon_no=501),
 
         }
         return render(request, 'branches/branch2/live_print_report/live_monthly_details/dec/dec_print_live.html', context)

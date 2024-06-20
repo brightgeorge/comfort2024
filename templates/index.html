@@ -42,9 +42,9 @@
 		 		<img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" alt="logo icon">
 		 	</div>
              <div class="form-control-position">
-					  <a href="{% url 'index' %}"<i class="icon-home"></i></a>
+					  <a href="http://3.111.53.134:8000/"<i class="icon-home"></i></a>
 				  </div>
-		  <div class="card-title text-uppercase text-center py-3">Sign In</div>
+		  <div class="card-title text-uppercase text-center py-3" >Sign In <span style="color:red;">2024</span> </div>
 
 		    <form action="{% url 'login_request' %}" method="post">
                 {% csrf_token %}

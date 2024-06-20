@@ -63,6 +63,8 @@ urlpatterns = [
 
     path('branch1_room_create/',admin_branch1.branch1_room_create,name='branch1_room_create'),
 
+    path('multiple_branch1_room_create_regi/',admin_branch1.multiple_branch1_room_create_regi,name='multiple_branch1_room_create_regi'),
+
 #**room creation end here
 #bed creation start here
 
@@ -74,6 +76,8 @@ urlpatterns = [
 
     path('single_pg1_bed_create_regi/', admin_branch1.single_pg1_bed_create_regi, name='single_pg1_bed_create_regi'),
     path('update_bed_basic_details/<id>', admin_branch1.update_bed_basic_details, name='update_bed_basic_details'),
+
+    path('multiple_single_pg1_bed_create_regi/',admin_branch1.multiple_single_pg1_bed_create_regi,name='multiple_single_pg1_bed_create_regi'),
 
     #bed creation end here
 #guest
@@ -89,6 +93,8 @@ urlpatterns = [
 
     #path('branch11_bed_create_update/<id>',branch1.branch11_bed_create_update,name='branch11_bed_create_update'),
     #path('admit_guest/',views.admit_guest,name='admit_guest'),
+    path('multiple_br1_admit_guest/<id>',branch1.multiple_br1_admit_guest,name='multiple_br1_admit_guest'),
+
 #guest end here
 
 #*********reports start here
@@ -298,6 +304,12 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 
     path('choose_months_advance/',branch1.choose_months_advance,name='choose_months_advance'),
 
+    path('jan_advance/', branch1.jan_advance, name='jan_advance'),
+    path('jan_make_payments_advance/<id>', branch1.jan_make_payments_advance, name='jan_make_payments_advance'),
+    path('feb_advance/', branch1.feb_advance, name='feb_advance'),
+    path('feb_make_payments_advance/<id>', branch1.feb_make_payments_advance, name='feb_make_payments_advance'),
+    path('march_advance/', branch1.march_advance, name='march_advance'),
+    path('march_make_payments_advance/<id>', branch1.march_make_payments_advance, name='march_make_payments_advance'),
     path('april_advane/', branch1.april_advane, name='april_advane'),
     path('april_make_payments_advance/<id>', branch1.april_make_payments_advance, name='april_make_payments_advance'),
 

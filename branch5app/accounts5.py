@@ -4246,7 +4246,8 @@ def profit_sharing5(request,mo):
 
 #        r_balance_9
 
-
+        mon = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+               'November', 'December']
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
@@ -4264,6 +4265,7 @@ def profit_sharing5(request,mo):
             'name': us,
 
             'mysh' : sh,
+            'mo': mon[int(mo)],
 
 
         }

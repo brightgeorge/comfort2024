@@ -342,7 +342,7 @@ function exportTableToExcel(tableID, filename = ''){
                  <tr>
 
 
-                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright A/C S - Detailed Report of JUNE')">download</button></th>
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright A/C S - PROFIT SHARING COMFORT 1 - {{mo}}')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
                      <th ><a href="{% url 'create_share_holders' %}"> <button class="mybutton button1" style="background-color:green;color:white;">ADD SHARE HOLDER </button></a></th>
                       <th ><a href="{% url 'view_all_ledger_delete' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;">DELETED LEDGER</span> </button></a></th>
@@ -353,7 +353,13 @@ function exportTableToExcel(tableID, filename = ''){
            <div class="table-responsive">
               <table class="table table-sm" id="tbldata" border="1">
                 <thead>
-                  <tr >
+
+                <tr>
+                    <th scope="col" colspan="7" style="text-align:center;background-color:violet;">
+                        PROFIT SHARING COMFORT 1 - {{mo}}  </th>
+                </tr>
+
+                  <tr>
                     <th scope="col" >SL NO</th>
                       <th scope="col" >MANAGE</th>
                     <th scope="col" >SHARE HOLDER NAME</th>

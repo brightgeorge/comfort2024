@@ -671,6 +671,21 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
+                                    <tr>
+                    <th scope="row" rowspan="{{rs403}}">403</th>
+                      {% for i in 403_data %}
+
+                  <th scope="row" style="height:{{table_height}};">{{i.feb_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.feb_advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.get_total_due_feb}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
                   <tr>
                     <th scope="row" rowspan="{{rs404}}">404</th>
                       {% for i in 404_data %}
