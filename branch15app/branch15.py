@@ -22,11 +22,11 @@ import pymysql.cursors
 def branch1_dashboard_ob_ch15(request):
     if 'username' in request.session:
         us = request.session['username']
-        a = admin_dashboard_calculations_br15.grand_total_collection()
-        from datetime import datetime
-        cmm = datetime.now().month
-        cm = cmm - 1
-        gtc = a[cm]
+        #a = admin_dashboard_calculations_br15.grand_total_collection()
+        #from datetime import datetime
+        #cmm = datetime.now().month
+        #cm = cmm - 1
+        #gtc = a[cm]
 
 
         us = request.session['username']
@@ -45,19 +45,19 @@ def branch1_dashboard_ob_ch15(request):
             'name': us,
 
 
-            'name': us,
-            'total_count_active_guests': admin_dashboard_calculations_br15.total_count_active_guests(),
-            'total_count_vaccant_rooms': admin_dashboard_calculations_br15.total_count_vaccant_rooms(),
-            'grand_total_collection': gtc,
-            'total_collection_advance': admin_dashboard_calculations_br15.total_collection_advance(),
-            'total_discount': admin_dashboard_calculations_br15.total_discount(),
+            #'name': us,
+            #'total_count_active_guests': admin_dashboard_calculations_br15.total_count_active_guests(),
+            #'total_count_vaccant_rooms': admin_dashboard_calculations_br15.total_count_vaccant_rooms(),
+            #'grand_total_collection': gtc,
+            #'total_collection_advance': admin_dashboard_calculations_br15.total_collection_advance(),
+            #'total_discount': admin_dashboard_calculations_br15.total_discount(),
 
-            'total_colatable_amount': admin_dashboard_calculations_br15.total_colatable_amount(),
-            'total_collected_amount': admin_dashboard_calculations_br15.total_collected_amount(),
-            'total_due': admin_dashboard_calculations_br15.total_due(),
-            'l': admin_dashboard_calculations_br15.grand_total(),
+            #'total_colatable_amount': admin_dashboard_calculations_br15.total_colatable_amount(),
+            #'total_collected_amount': admin_dashboard_calculations_br15.total_collected_amount(),
+            #'total_due': admin_dashboard_calculations_br15.total_due(),
+            #'l': admin_dashboard_calculations_br15.grand_total(),
             #'total_collection_discount_june' : admin_dashboard_calculations_br10.total_collection_discount_june(),
-            'y': admin_dashboard_calculations_br15.bar_chart(),
+            #'y': admin_dashboard_calculations_br15.bar_chart(),
         }
 
     return render(request, 'branches/branch15/branch1index.html', context)
@@ -71,11 +71,11 @@ def branch1_dashboard_ob_ch15(request):
 def branch1_dashboard15(request):
     if 'username' in request.session:
         us = request.session['username']
-        a = admin_dashboard_calculations_br15.grand_total_collection()
-        from datetime import datetime
-        cmm = datetime.now().month
-        cm = cmm - 1
-        gtc = a[cm]
+        #a = admin_dashboard_calculations_br15.grand_total_collection()
+        #from datetime import datetime
+        #cmm = datetime.now().month
+        #cm = cmm - 1
+        #gtc = a[cm]
 
 
         us = request.session['username']
@@ -95,18 +95,18 @@ def branch1_dashboard15(request):
 
 
             'name': us,
-            'total_count_active_guests': admin_dashboard_calculations_br15.total_count_active_guests(),
-            'total_count_vaccant_rooms': admin_dashboard_calculations_br15.total_count_vaccant_rooms(),
-            'grand_total_collection': gtc,
-            'total_collection_advance': admin_dashboard_calculations_br15.total_collection_advance(),
-            'total_discount': admin_dashboard_calculations_br15.total_discount(),
+            #'total_count_active_guests': admin_dashboard_calculations_br15.total_count_active_guests(),
+            #'total_count_vaccant_rooms': admin_dashboard_calculations_br15.total_count_vaccant_rooms(),
+            #'grand_total_collection': gtc,
+            #'total_collection_advance': admin_dashboard_calculations_br15.total_collection_advance(),
+            #'total_discount': admin_dashboard_calculations_br15.total_discount(),
 
-            'total_colatable_amount': admin_dashboard_calculations_br15.total_colatable_amount(),
-            'total_collected_amount': admin_dashboard_calculations_br15.total_collected_amount(),
-            'total_due': admin_dashboard_calculations_br15.total_due(),
-            'l': admin_dashboard_calculations_br15.grand_total(),
+            #'total_colatable_amount': admin_dashboard_calculations_br15.total_colatable_amount(),
+            #'total_collected_amount': admin_dashboard_calculations_br15.total_collected_amount(),
+            #'total_due': admin_dashboard_calculations_br15.total_due(),
+            #'l': admin_dashboard_calculations_br15.grand_total(),
             #'total_collection_discount_june' : admin_dashboard_calculations_br10.total_collection_discount_june(),
-            'y': admin_dashboard_calculations_br15.bar_chart(),
+            #'y': admin_dashboard_calculations_br15.bar_chart(),
         }
 
     return render(request, 'branches/branch15/branch1index.html', context)
