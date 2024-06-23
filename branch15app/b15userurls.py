@@ -12,6 +12,7 @@ urlpatterns = [
 
     path('branch1_dashboard_ob_ch15/', branch15.branch1_dashboard_ob_ch15, name='branch1_dashboard_ob_ch15'),
     path('branch1_dashboard15/',branch15.branch1_dashboard15,name='branch1_dashboard15'),
+    path('user_dashboard_calculations_ob_ch15/',branch15.user_dashboard_calculations_ob_ch15,name='user_dashboard_calculations_ob_ch15'),
 
     path('background_ob_ch15',branch15.background_ob_ch15,name='background_ob_ch15'),
     path('background_regi_ob_ch15',branch15.background_regi_ob_ch15,name='background_regi_ob_ch15'),
