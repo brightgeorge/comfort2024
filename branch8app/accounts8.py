@@ -2597,7 +2597,7 @@ def monthly_detailed_daily_in_exp_items_report8(request,mo):
         n_mth= int(mth)
         month_name_dis = mth_list[n_mth]
 
-        ye_list= ['*','2024','2024','2024','2023','2023','2023','2023','2023','2023','2023','2023','2023']
+        ye_list= ['*','2024','2024','2024','2024','2024','2024','2024','2024','2024','2024','2024','2024']
         n_ye= int(mth)
         ye_name_dis = ye_list[n_ye]
 
@@ -3202,7 +3202,7 @@ def single_monthly_daily_in_exp_items_report8(request,mo):
         n_mth = int(mth)
         month_name_dis = mth_list[n_mth]
 
-        ye_list = ['*', '2024', '2024', '2024', '2023', '2023', '2023', '2023', '2023', '2023', '2023', '2023', '2023']
+        ye_list = ['*', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024']
         n_ye = int(mth)
         ye_name_dis = ye_list[n_ye]
 

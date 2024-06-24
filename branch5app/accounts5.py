@@ -1412,7 +1412,7 @@ def delete_journal5(request,id):
                 'items': in_exp_items_daily.objects.all().filter(flag=1).order_by('-id')[:10],
                 'message_bg': 'alert-success',
 
-                'ledger': ledger.objects.all().filter(flag=1),
+                'lesingle_monthly_reports_choose_months5dger': ledger.objects.all().filter(flag=1),
                 'accounts_book': accounts_book.objects.all().filter(flag=1),
             }
             messages.info(request, 'ITEM Deleted Successfully')
@@ -2597,7 +2597,7 @@ def monthly_detailed_daily_in_exp_items_report5(request,mo):
         n_mth= int(mth)
         month_name_dis = mth_list[n_mth]
 
-        ye_list= ['*','2024','2024','2024','2023','2023','2023','2023','2023','2023','2023','2023','2023']
+        ye_list= ['*','2024','2024','2024','2024','2024','2024','2024','2024','2024','2024','2024','2024']
         n_ye= int(mth)
         ye_name_dis = ye_list[n_ye]
 
@@ -3202,7 +3202,7 @@ def single_monthly_daily_in_exp_items_report5(request,mo):
         n_mth = int(mth)
         month_name_dis = mth_list[n_mth]
 
-        ye_list = ['*', '2024', '2024', '2024', '2023', '2023', '2023', '2023', '2023', '2023', '2023', '2023', '2023']
+        ye_list = ['*', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024', '2024']
         n_ye = int(mth)
         ye_name_dis = ye_list[n_ye]
 
