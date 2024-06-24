@@ -19,6 +19,51 @@ import pymysql.cursors
 def branch1_dashboard(request):
     if 'username' in request.session:
         us = request.session['username']
+        #a = admin_dashboard_calculations_br1.grand_total_collection()
+        #from datetime import datetime
+        #cmm = datetime.now().month
+        #cm = cmm - 1
+        #gtc = a[cm]
+
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
+            #'name': us,
+            #'total_count_active_guests': admin_dashboard_calculations_br1.total_count_active_guests(),
+            #'total_count_vaccant_rooms': admin_dashboard_calculations_br1.total_count_vaccant_rooms(),
+            #'grand_total_collection': gtc,
+            #'total_collection_advance': admin_dashboard_calculations_br1.total_collection_advance(),
+            #'total_discount': admin_dashboard_calculations_br1.total_discount(),
+
+            #'total_colatable_amount': admin_dashboard_calculations_br1.total_colatable_amount(),
+            #'total_collected_amount': admin_dashboard_calculations_br1.total_collected_amount(),
+            #'total_due': admin_dashboard_calculations_br1.total_due(),
+            #'l': admin_dashboard_calculations_br1.grand_total(),
+            # 'total_collection_discount_june' : admin_dashboard_calculations_br1.total_collection_discount_june(),
+            #'y': admin_dashboard_calculations_br1.bar_chart(),
+        }
+
+    return render(request,'branches/branch1/branch1index.html',context)
+    return render(request,'index.html')
+
+
+
+
+def user_dashboard_calculations_ob_ch1(request):
+    if 'username' in request.session:
+        us = request.session['username']
         a = admin_dashboard_calculations_br1.grand_total_collection()
         from datetime import datetime
         cmm = datetime.now().month
@@ -55,8 +100,11 @@ def branch1_dashboard(request):
             'y': admin_dashboard_calculations_br1.bar_chart(),
         }
 
-    return render(request,'branches/branch1/branch1index.html',context)
+    return render(request,'branches/branch1/user_dashboard_calculations.html',context)
     return render(request,'index.html')
+
+
+
 
 def admit_guest(request):
     us = request.session['username']

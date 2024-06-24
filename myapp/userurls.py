@@ -54,6 +54,7 @@ urlpatterns = [
 
 #branch one start here
     path('branch1_dashboard/',branch1.branch1_dashboard,name='branch1_dashboard'),
+    path('user_dashboard_calculations_ob_ch1/',branch1.user_dashboard_calculations_ob_ch1,name='user_dashboard_calculations_ob_ch1'),
 #**room creation start here
 
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
