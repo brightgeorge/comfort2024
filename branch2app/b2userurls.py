@@ -26,6 +26,7 @@ urlpatterns = [
     #path('view_all_users/', views.view_all_users, name='view_all_users'),
     #path('view_all_room/', admin_branch2.view_all_room, name='view_all_room'),
     path('branch1_dashboard2/', branch2.branch1_dashboard2, name='branch1_dashboard2'),
+    path('user_dashboard_calculations_ob_ch2/',branch2.user_dashboard_calculations_ob_ch2,name='user_dashboard_calculations_ob_ch2'),
 
     path('background2', branch2.background2, name='background2'),
     path('background_regi2', branch2.background_regi2, name='background_regi2'),

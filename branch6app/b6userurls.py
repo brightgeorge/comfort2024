@@ -10,6 +10,8 @@ from . import accounts6
 
 urlpatterns = [
     path('branch1_dashboard6/', branch6.branch1_dashboard6, name='branch1_dashboard6'),
+    path('user_dashboard_calculations_ob_ch6/',branch6.user_dashboard_calculations_ob_ch6,name='user_dashboard_calculations_ob_ch6'),
+
     path('background6',branch6.background6,name='background6'),
     path('background_regi6',branch6.background_regi6,name='background_regi6'),
     path('custom_background_regi6',branch6.custom_background_regi6,name='custom_background_regi6'),

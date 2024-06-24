@@ -11,6 +11,8 @@ from . import accounts11
 urlpatterns = [
 
     path('branch1_dashboard_ob_ch11/', branch11.branch1_dashboard_ob_ch11, name='branch1_dashboard_ob_ch11'),
+    path('user_dashboard_calculations_ob_ch11/',branch11.user_dashboard_calculations_ob_ch11,name='user_dashboard_calculations_ob_ch11'),
+
     path('background_ob_ch11',branch11.background_ob_ch11,name='background_ob_ch11'),
     path('background_regi_ob_ch11',branch11.background_regi_ob_ch11,name='background_regi_ob_ch11'),
     path('custom_background_regi_ob_ch11',branch11.custom_background_regi_ob_ch11,name='custom_background_regi_ob_ch11'),

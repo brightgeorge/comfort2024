@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Open Bright PG MGT</title>
+  <title>gweigh</title>
   <!-- loader-->
   <link href="{% static 'admindashboard/assets/css/pace.min.css' %}" rel="stylesheet"/>
   <script src="{% static 'admindashboard/assets/js/pace.min.js' %}"></script>
@@ -28,28 +28,167 @@
   <!-- Custom Style-->
   <link href="{% static 'admindashboard/assets/css/app-style.css' %}" rel="stylesheet"/>
 
-    <style>
-        #mycolor:hover{
-            color:white;
-        }
 
 
-.mymar{
-    margin-top:100px;
+    <style type="text/css">
+
+
+#holder{
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  background: white;
+  padding: 20px;
+  width: 350px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-65%);
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.25);
+  border-radius: 2px;
+  margin-top:22%;
+  border-style: outset;
+}
+.button {
+  background: #3D4C53;
+  margin : 20px auto;
+  width : 300px;
+  height : 50px;
+  overflow: hidden;
+  text-align : center;
+  transition : .2s;
+  cursor : pointer;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+.mybutton {
+  background: #3D4C53;
+  margin : 20px auto;
+  width : 200px;
+  height : 50px;
+  overflow: hidden;
+  text-align : center;
+  transition : .2s;
+  cursor : pointer;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.2);
 }
 
-@media only screen and (max-width: 600px) {
-  .mymar {
-  margin-top:0px;
+.btnTwo {
+  position : relative;
+  width : 200px;
+  height : 100px;
+  margin-top: -100px;
+  padding-top: 2px;
+  background : #26A69A;
+  left : -250px;
+  transition : .3s;
 
-  }
+}
+.mybtnTwo {
+  position : relative;
+  width : 200px;
+  height : 100px;
+  margin-top: -100px;
+  padding-top: 2px;
+  background : red;
+  left : -250px;
+  transition : .3s;
 }
 
 
-    </style>
+
+.btnText {
+margin-top : 10px;
+  color : orange;
+  transition : .3s;
+  font-weight:bold;
+  font-size:25px;
+}
+.mybtnText {
+margin-top : 10px;
+  color : red;
+  transition : .3s;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.btnText2 {
+  margin-top : 63px;
+  margin-right : -130px;
+  color : #FFF;
+}
+
+.mybtnText2 {
+  margin-top : 63px;
+  margin-right : -130px;
+  color : #FFF;
+
+}
+
+
+.button:hover .btnTwo{ /*When hovering over .button change .btnTwo*/
+  left: -130px;
+}
+.mybutton:hover .btnTwo{ /*When hovering over .button change .btnTwo*/
+  left: -130px;
+  background:red;
+  color:white;
+}
+.button:hover .btnText{ /*When hovering over .button change .btnText*/
+  margin-left : 65px;
+}
+.mybutton:hover .btnText{ /*When hovering over .button change .btnText*/
+  margin-left : 65px;
+}
+.button:active { /*Clicked and held*/
+  box-shadow: 0px 5px 6px rgba(0,0,0,0.3);
+}
+.mybutton:active { /*Clicked and held*/
+  box-shadow: 0px 5px 6px rgba(0,0,0,0.3);
+}
+
+
+
+
+@media only all and (max-width: 600px) {
+
+#holder{
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  background: white;
+  padding: 20px;
+  width: 350px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-65%);
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.25);
+  border-radius: 2px;
+  margin-top:45%;
+  border-style: outset;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
 
 </head>
-
 
 {% if us == th_us %}
 {% for i in bg %}
@@ -66,25 +205,25 @@
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
 
-       {% if name == 'admin' %}
-      <a href="{% url 'admin_dashboard' %}">
-       <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
 
-          <h5 class="logo-text">Open Bright PG MGT </h5>
+             {% if name == 'admin' %}
+      <a href="{% url 'admin_dashboard' %}">
+       <!-- <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">-->
+       <h5 class="logo-text">Open Bright PG MGT </h5>
      </a>
          {% else %}
 
           <a href="#">
-       <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-
-          <h5 class="logo-text">Open Bright PG MGT </h5>
+       <!-- <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">-->
+       <h5 class="logo-text">Open Bright PG MGT </h5>
      </a>
 
          {% endif %}
 
+
    </div>
    <ul class="sidebar-menu do-nicescrol">
-       <li class="sidebar-header"><h6 style="text-decoration:underline;">.........* PERFECT PG 3 *.........</h6></li>
+             <li class="sidebar-header"><h6 style="text-decoration:underline;">.........* PERFECT PG 3 *.........</h6></li>
 
       <li>
         <a href="{% url 'branch1_dashboard_ob_ch14' %}">
@@ -244,9 +383,9 @@
 
 
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> <a href="{% url 'manage_new_guest5' %}">n guest Account </a> </li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
         <li class="dropdown-divider"></li>
-          <li class="dropdown-item"><i class="icon-power mr-2"></i><a href="{% url 'manage_bed5' %}">beds Logout </a></li>
+          <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
 
 
       </ul>
@@ -258,233 +397,17 @@
 
 <div class="clearfix"></div>
 
-  <div class="content-wrapper">
+  <div class="content-wrapper"><!--
     <div class="container-fluid">
 
   <!--Start Dashboard Content-->
-{{l}}
-	<div class="card mt-3">
-
-    <div class="card-content">
-        <div class="row row-group m-0">
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">{{total_count_active_guests}} <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">Total Guests <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'viewall_vaccant_room_ob_ch14' %}">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">{{total_count_vaccant_rooms}} <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">Total Vaccant Rooms <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'monthly_details_due_ob_ch14' %}"
-                <div class="card-body">
-                  <h5 class="text-white mb-0">{{total_colatable_amount}} - {{total_collected_amount}} = {{total_due}} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">Total Collection
-                      {{grand_total_collection}}+{{total_collection_advance}}-{{total_discount}}
-
-                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-        </div>
-    </div>
- </div>
-
-	<div class="row">
-     <div class="col-12 col-lg-8 col-xl-8">
-	    <div class="card">
-		 <div class="card-header">Total Collection Details
-		   <div class="card-action">
-			 <div class="dropdown">
-			 <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-			  <i class="icon-options"></i>
-			 </a>
-				<div class="dropdown-menu dropdown-menu-right">
-                    <p>Total Order 00</p>
-                <p>Total Profit 00</p>
-
-			   </div>
-			  </div>
-		   </div>
-		 </div>
-		 <div class="card-body">
 
 
 
-			<div class="chart-container-1" >
-			  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-                <canvas id="myChart">jj</canvas>
-
-<script>
-var xValues = ["Total Amount ", "Received Amount", "Due Amount",'Discounted Amount',""];
-var yValues = {{y}};
-//var yValues =[10,10,8,5,0]
-var barColors = ["red", "green","blue","yellow",""];
-
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      barPercentage: 1,
-      barThickness: 2,
-        maxBarThickness: 2,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    responsive: true,
-    /*aspectRatio : 100000,*/
-    title: {
-      display: true,
-      text: ""
-    }
-  }
-});
-</script>
-
-			</div>
-         </div>
-
-
-<span class="mymar"></span>
-
-		 <div class="row m-0 row-group text-center border-top border-light-3">
-		   <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.0}}</h5>
-			   <small class="mb-0">Total Amount <span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-		   <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.1}}</h5>
-			   <small class="mb-0">Received Amount<span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-		   <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.2}}</h5>
-			   <small class="mb-0">Due Amount <span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-
-             <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.3}}</h5>
-			   <small class="mb-0">Discounted Amount <span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-
-		 </div>
-
-
-		</div>
-	 </div>
-
-     <div class="col-12 col-lg-4 col-xl-4">
-        <div class="card">
-           <div class="card-header">User Details
-             <div class="card-action">
-             <div class="dropdown">
-             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-              <i class="icon-options"></i>
-             </a>
-              <div class="dropdown-menu1 dropdown-menu-right">
-
-               </div>
-              </div>
-             </div>
-           </div>
-           <div class="card-body">
-		     <div class="chart-container-2">
-               <!--<canvas id="chart2"></canvas>-->
-
-                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-                <canvas id="myCharts" style="margin-top:-35px;"></canvas>
-
-<script>
-var xValues = ["Branch1", "Branch2", "Branch3",""];
-//var yValues = {{yy}};
-var yValues = [8,6];
-var barColors = ["red","blue"];
-
-new Chart("myCharts", {
-  type: "doughnut",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      barPercentage: 100,
-      barThickness: 2,
-        maxBarThickness: 2,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: ""
-    }
-  }
-});
-</script>
 
 
 
-			  </div>
-           </div>
-            <br/><br/><br/><br/><br/><br/><br/>
-           <div class="table-responsive">
-             <table class="table align-items-center">
-               <tbody>
-               <tr>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                 </tr>
-                 <tr>
-                   <td><i class="fa fa-circle text-white mr-2"></i> Active Users</td>
-                   <td>{{active_user}}</td>
-                   <td>+00%</td>
-                 </tr>
-                 <tr>
-                   <td><i class="fa fa-circle text-light-1 mr-2"></i>Deactive Users</td>
-                   <td>{{total_disableusers}}</td>
-                   <td>+00%</td>
-                 </tr>
-                 <tr>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                 </tr>
 
-               </tbody>
-             </table>
-           </div>
-         </div>
-     </div>
-	</div><!--End Row-->
 
 	<div class="row">
 	 <div class="col-12 col-lg-12">
@@ -551,6 +474,43 @@ new Chart("myCharts", {
 	 </div>
 	</div><!--End Row-->
 
+
+
+
+
+
+
+<!--
+      <a class="mybtn" href="">Check Value</a><br>
+
+       <a class="mybtns">Clear</a> -->
+
+
+
+
+<div id="holder">
+
+<div class="button">
+
+    <p class="btnText"><a href="{% url 'user_dashboard_calculations_ob_ch14' %}" style="color:orange;">CHECK COLLECTION?</a></p>
+<a href="{% url 'user_dashboard_calculations_ob_ch14' %}">
+    <div class="btnTwo">
+      <p class="btnText2">GO!</p>
+    </div></a>
+ </div>
+
+<div class="mybutton">
+    <p class="mybtnText"><a href="{% url 'viewall_vaccant_room_ob_ch14' %}" >VACCANT ROOMS</a></p>
+    <a href="{% url 'viewall_vaccant_room_ob_ch14' %}" >
+    <div class="btnTwo">
+      <p class="mybtnText2" >GO !!?</p>
+    </div></a>
+ </div>
+
+</div>
+
+
+
       <!--End Dashboard Content-->
 
 	<!--start overlay-->
@@ -569,7 +529,7 @@ new Chart("myCharts", {
 	<footer class="footer">
       <div class="container">
         <div class="text-center">
-          <a href="http://hbct.in/">powered by © HBCT.IN</a>
+          Copyright © 2018 Open Bright Admin
         </div>
       </div>
     </footer>
@@ -582,7 +542,7 @@ new Chart("myCharts", {
     </div>
     <div class="right-sidebar-content">
 
-        <p class="mb-0">Settings</p>
+                        <p class="mb-0">Settings</p>
       <hr>
 
       <ul class="switcher">

@@ -11,6 +11,7 @@ from . import accounts8
 
 urlpatterns = [
     path('branch1_dashboard8/', branch8.branch1_dashboard8, name='branch1_dashboard8'),
+    path('user_dashboard_calculations_ob_ch8/',branch8.user_dashboard_calculations_ob_ch8,name='user_dashboard_calculations_ob_ch8'),
 
 #**room creation start here
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
