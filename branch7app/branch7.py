@@ -1167,6 +1167,8 @@ def view_all_new_guest7(request):
             '601_data': pg1_new_beds.objects.all().filter(roon_no=601),
             'rs602': ll[29],
             '602_data': pg1_new_beds.objects.all().filter(roon_no=602),
+            'rs603': ll[30],
+            '603_data': pg1_new_beds.objects.all().filter(roon_no=603),
 
             ###########################
             'myl': ll,

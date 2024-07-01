@@ -1601,6 +1601,55 @@ function exportTableToExcel(tableID, filename = ''){
 
 
 
+
+
+
+            <tr>
+                    <th scope="row" rowspan="{{rs603}}">603</th>
+                      {% for i in 603_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest7' id=i.id %}">Update Guest</a>
+                  <a class="dropdown-item" href="{% url 'active_guest_details7' guest_code=i.guest_code %}" style="color:orange;"> Guest Details</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest7' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest7' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest7' id=i.id %}">shift guest</a>
+                <a class="dropdown-item" href=""></a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+
+
+
+
                 </tbody>
               </table>
             </div>
