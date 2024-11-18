@@ -325,9 +325,9 @@ def login_request(request):
             if role=='Branch15':
                 request.session['username'] = username
                 us = request.session['username']
-                import branch14app
-                bgs = branch14app.models.background_color.objects.all().filter(username=us)
-                bg = branch14app.models.background_color.objects.all().filter(username=us).exists()
+                import branch15app
+                bgs = branch15app.models.background_color.objects.all().filter(username=us)
+                bg = branch15app.models.background_color.objects.all().filter(username=us).exists()
                 a = []
                 if bg == True:
                     a.append(us)
@@ -342,6 +342,48 @@ def login_request(request):
                     'name' : us
                 }
                 return render(request,'branches/branch15/branch1index.html', context)
+
+            if role=='Branch16':
+                request.session['username'] = username
+                us = request.session['username']
+                import branch16app
+                bgs = branch16app.models.background_color.objects.all().filter(username=us)
+                bg = branch16app.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
+                context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'user': loginobj,
+                    'name' : us
+                }
+                return render(request,'branches/branch16/branch1index.html', context)
+
+            if role=='Branch17':
+                request.session['username'] = username
+                us = request.session['username']
+                import branch17app
+                bgs = branch17app.models.background_color.objects.all().filter(username=us)
+                bg = branch17app.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
+                context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'user': loginobj,
+                    'name' : us
+                }
+                return render(request,'branches/branch17/branch1index.html', context)
 
 
             else:
