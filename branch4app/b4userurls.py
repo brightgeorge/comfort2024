@@ -361,6 +361,8 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
     path('nov_print4/', branch4.nov_print4, name='nov_print4'),
     path('dec_print4/', branch4.dec_print4, name='dec_print4'),
 
+    path('new_year_jan_print4/', branch4.new_year_jan_print4, name='new_year_jan_print4'),
+
 ##################################
 #PRINT OUTS END HERE
 ################################

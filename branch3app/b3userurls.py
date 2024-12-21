@@ -370,6 +370,8 @@ path('full_paid_guest3/',reports3.full_paid_guest3,name='full_paid_guest3'),
     path('nov_print3/', branch3.nov_print3, name='nov_print3'),
     path('dec_print3/', branch3.dec_print3, name='dec_print3'),
 
+    path('new_year_jan_print3/', branch3.new_year_jan_print3, name='new_year_jan_print3'),
+
 ##################################
 #PRINT OUTS END HERE
 ################################

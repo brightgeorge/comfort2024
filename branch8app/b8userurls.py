@@ -426,6 +426,8 @@ path('dec_make_payments_advance8/<id>', branch8.dec_make_payments_advance8, name
     path('nov_print8/', branch8.nov_print8, name='nov_print8'),
     path('dec_print8/', branch8.dec_print8, name='dec_print8'),
 
+    path('new_year_jan_print8/', branch8.new_year_jan_print8, name='new_year_jan_print8'),
+
 ##################################
 #PRINT OUTS END HERE
 ################################

@@ -418,6 +418,8 @@ path('full_paid_guest9/',reports9.full_paid_guest9,name='full_paid_guest9'),
     path('nov_print9/', branch9.nov_print9, name='nov_print9'),
     path('dec_print9/', branch9.dec_print9, name='dec_print9'),
 
+    path('new_year_jan_print9/', branch9.new_year_jan_print9, name='new_year_jan_print9'),
+
     ##################################
     # PRINT OUTS END HERE
     ################################

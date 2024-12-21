@@ -425,6 +425,8 @@ path('dec_make_payments_advance7/<id>', branch7.dec_make_payments_advance7, name
     path('nov_print7/', branch7.nov_print7, name='nov_print7'),
     path('dec_print7/', branch7.dec_print7, name='dec_print7'),
 
+    path('new_year_jan_print7/', branch7.new_year_jan_print7, name='new_year_jan_print7'),
+
 ##################################
 #PRINT OUTS END HERE
 ################################

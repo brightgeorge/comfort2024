@@ -7876,6 +7876,100 @@ def dec_print6(request):
     return render(request, 'index.html')
 
 
+
+
+def new_year_jan_print6(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        # rsdata = room_pg1.objects.all().order_by('roon_no')1,
+        # a
+        rsdata = room_pg1.objects.all().order_by('roon_no')
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print('room share type of branch22', ll)
+        print('room share type of branchl0', ll[0])
+        print('room share type of branchl1', ll[1])
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'brname': 'BRANCH 6 Room Creation Form',
+            #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '50px',
+
+
+            'rs1':ll[0],
+            'rm1_data':pg1_new_beds.objects.all().filter(roon_no=1),
+            #'g1_data':g1_data,
+            'rs2': ll[1],
+            'rm2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'rs3': ll[2],
+            'rm3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'rs4': ll[3],
+            'rm4_data': pg1_new_beds.objects.all().filter(roon_no=4),
+            'rs5': ll[4],
+            'rm5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'rs6': ll[5],
+            'rm6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'rs7': ll[6],
+            'rm7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'rs8': ll[7],
+            'rm8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'rs9': ll[8],
+            'rm9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs10': ll[9],
+            'rm10_data': pg1_new_beds.objects.all().filter(roon_no=10),
+            'rs11': ll[10],
+            'rm11_data': pg1_new_beds.objects.all().filter(roon_no=11),
+            'rs12': ll[11],
+            'rm12_data': pg1_new_beds.objects.all().filter(roon_no=12),
+            'rs13': ll[12],
+            'rm13_data': pg1_new_beds.objects.all().filter(roon_no=13),
+            'rs14': ll[13],
+            'rm14_data': pg1_new_beds.objects.all().filter(roon_no=14),
+            'rs15': ll[14],
+            'rm15_data': pg1_new_beds.objects.all().filter(roon_no=15),
+            'rs16': ll[15],
+            'rm16_data': pg1_new_beds.objects.all().filter(roon_no=16),
+            'rs17': ll[16],
+            'rm17_data': pg1_new_beds.objects.all().filter(roon_no=17),
+            'rs18': ll[17],
+            'rm18_data': pg1_new_beds.objects.all().filter(roon_no=18),
+            'rs19': ll[18],
+            'rm19_data': pg1_new_beds.objects.all().filter(roon_no=19),
+            'rs20': ll[19],
+            'rm20_data': pg1_new_beds.objects.all().filter(roon_no=20),
+            'rs21': ll[20],
+            'rm21_data': pg1_new_beds.objects.all().filter(roon_no=21),
+            'rs22': ll[21],
+            'rm22_data': pg1_new_beds.objects.all().filter(roon_no=22),
+
+        }
+        return render(request, 'branches/branch6/print_outs/new_year_jan_print.html', context)
+    return render(request, 'index.html')
+
+
+
 ##################################
 # PRINT OUTS END HERE
 ################################

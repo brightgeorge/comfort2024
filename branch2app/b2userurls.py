@@ -375,6 +375,8 @@ path('full_paid_guest2/',reports2.full_paid_guest2,name='full_paid_guest2'),
     path('nov_print2/', branch2.nov_print2, name='nov_print2'),
     path('dec_print2/', branch2.dec_print2, name='dec_print2'),
 
+    path('new_year_jan_print2/', branch2.new_year_jan_print2, name='new_year_jan_print2'),
+
 ##################################
 #PRINT OUTS END HERE
 ################################
