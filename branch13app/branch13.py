@@ -7417,6 +7417,47 @@ def dec_print_ob_ch13(request):
     return render(request, 'index.html')
 
 
+
+def new_year_jan_print_ob_ch13(request):
+    if 'username' in request.session:
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
+        l = []
+        t = []
+        s = []
+        for i in ag:
+            if i.roon_no not in l:
+                x = 10
+            else:
+                t.append(i.share_type)
+                i.share_type = 101230
+                s.append(i.share_type)
+            l.append(i.roon_no)
+
+        print('lllp', l)
+        print('ttt', t)
+        print('sss', s)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+            # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
+            'data': ag,
+        }
+        return render(request, 'branches/branch13/print_outs/new_year_jan_print.html', context)
+    return render(request, 'index.html')
+
+
 ##################################
 # PRINT OUTS END HERE
 ################################

@@ -357,6 +357,9 @@ urlpatterns = [
     path('nov_print_ob_ch16/', branch16.nov_print_ob_ch16, name='nov_print_ob_ch16'),
     path('dec_print_ob_ch16/', branch16.dec_print_ob_ch16, name='dec_print_ob_ch16'),
 
+    path('new_year_jan_print_ob_ch16/', branch16.new_year_jan_print_ob_ch16, name='new_year_jan_print_ob_ch16'),
+
+
 ##################################
 #PRINT OUTS END HERE
 ################################

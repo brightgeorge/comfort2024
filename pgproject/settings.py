@@ -103,6 +103,12 @@ WSGI_APPLICATION = 'pgproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+
+
+
+
+
+
         'NAME': 'cpg2024',
         'USER': 'root',
         'PASSWORD': '#123.com#',
